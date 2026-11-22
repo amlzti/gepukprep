@@ -1,4 +1,4 @@
-# GepukPrep AI: prototype (custom menu version)
+# GepukPrep AI: prototype
 
 A web app that recommends how many portions of ayam gepuk to prepare each day, and how much of each ingredient (bahan) that needs. It was built for the TEB2023 Artificial Intelligence group project.
 
