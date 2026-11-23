@@ -120,14 +120,14 @@
   ];
   // What the group's own study said for each factor (Excel: AI-Gepuk_AI_Survey_Data_Analysis).
   const SURVEY = { fri: "weekday rule", sat: "weekend rule", sun: "weekend rule", rain: "survey", hol: "assumption",
-    utpSt: "survey", utpEx: "survey", utpBr: "vendor", uitmSt: "estimate", uitmEx: "estimate", uitmBr: "estimate" };
+    utpSt: "survey", utpEx: "survey", utpBr: "assumption", uitmSt: "estimate", uitmEx: "estimate", uitmBr: "estimate" };
   // HYBRID: the group's study gives each factor a STARTING value. The model starts from it and
   // moves towards what the shop's own data shows. The study counts as STUDY_DAYS days of evidence,
   // so with few data days the study decides; with many, the data decides.
   // UiTM values are estimates: 12% of respondents x the change seen for UTP students.
   // Values from the group's IF-THEN rules (report Section 3.0 / 4.4). Friday counts as a weekday.
-  const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, hol: 0.40, utpSt: 0.95, utpEx: 0.75, utpBr: 0.60,
-    uitmSt: 0.99, uitmEx: 0.97, uitmBr: 0.95 };
+  const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, hol: 0.40, utpSt: 0.95, utpEx: 0.75, utpBr: 0.50,
+    uitmSt: 0.99, uitmEx: 0.97, uitmBr: 0.94 };
   const STUDY_DAYS = 14;
   const xOf = (r) => [1].concat(FEATURES.map((f) => (f.test(r) ? 1 : 0)));
 

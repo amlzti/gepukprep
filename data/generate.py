@@ -36,13 +36,13 @@ PERIOD = {                           # applied from the UTP calendar (76.7% of r
     "Lecture": 1.00,
     "Study break": 0.95,             # Rule 2: survey, no classes that day
     "Exams": 0.75,                   # Rule 3: survey, exam week / many assignments
-    "Break": 0.60,                   # Rule 4: vendor, "about 40% fewer, around 60 to 75 portions a day"
-}                                    #   (replaces the 0.50 assumption, as the rules sheet says to)
+    "Break": 0.50,                   # Rule 4: ASSUMPTION, same as report Section 3.0 (vendor later said ~40% fewer)
+}
 RAIN = 0.85                          # Rule 5: survey 0.83 rounded to 0.85 (vendor: 10-20% fewer)
 HOLIDAY = 0.40                       # Rule 6: ASSUMPTION, not in survey; vendor "not sure"
 # UiTM: ESTIMATE. 12% of respondents study at UiTM, so a UiTM period changes total demand by
-# about 12% x (the same change seen for UTP students): break 1-0.12x0.40, exams 1-0.12x0.25.
-UITM_PERIOD = {"Lecture": 1.00, "Study break": 0.99, "Exams": 0.97, "Break": 0.95}
+# about 12% x (the same change seen for UTP students): break 1-0.12x0.50, exams 1-0.12x0.25.
+UITM_PERIOD = {"Lecture": 1.00, "Study break": 0.99, "Exams": 0.97, "Break": 0.94}
 # Owner: decides early morning "based on previous day's sales", leaves ~0 unsold portions
 # and turns away 1-5 customers when chicken runs out. So: plan = recent days' customers + a little.
 OWNER_EXTRA = (0.00, 0.06)          # a little extra on top of the recent average
