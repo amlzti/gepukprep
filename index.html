@@ -381,12 +381,12 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
 <!-- ================= HISTORY ================= -->
 <section id="tab-history" aria-label="History" hidden>
   <div class="section-title"><h2>Is the plan working?</h2><span class="ms">Rekod</span></div>
-  <p class="sim-note"><strong>Demonstration with simulated sales.</strong> These results show how the method would be checked. They are not real savings at the shop. On days the owner sold out, real demand is estimated as 12% above what was sold, and both plans are scored against that. The model learned from earlier days and is tested on <strong id="m-days">–</strong> later days it never saw (<span id="m-period"></span>).</p>
+  <p class="sim-note"><strong>Demonstration with the report's simulated sales.</strong> These results show how the method would be checked; they are not real results at the shop. The model learned from the first 70% of the report's 30 days and is tested on the <strong id="m-days">–</strong> later days it never saw (<span id="m-period"></span>).</p>
   <div class="metrics">
     <div class="metric hl"><div class="m-k">GepukPrep misses by</div><div class="m-v" id="m-ai">–</div><div class="m-s">portions a day on average</div></div>
-    <div class="metric"><div class="m-k">Owner's plan misses by</div><div class="m-v" id="m-own">–</div><div class="m-s">portions a day on average</div></div>
-    <div class="metric"><div class="m-k">Food waste</div><div class="m-v" id="m-waste">–</div><div class="m-s" id="m-waste-l"></div></div>
-    <div class="metric"><div class="m-k">Days that ran out</div><div class="m-v" id="m-out">–</div><div class="m-s">GepukPrep vs owner</div></div>
+    <div class="metric"><div class="m-k">Days it would run short</div><div class="m-v" id="m-own">–</div><div class="m-s">plan lower than sales</div></div>
+    <div class="metric"><div class="m-k">Extra food prepared</div><div class="m-v" id="m-waste">–</div><div class="m-s" id="m-waste-l"></div></div>
+    <div class="metric"><div class="m-k">Test days</div><div class="m-v" id="m-out">–</div><div class="m-s">days the model never saw</div></div>
   </div>
   <div class="card" style="margin-bottom:20px">
     <div class="row-between">
@@ -396,7 +396,7 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
         <button class="seg-btn on" data-days="30" aria-pressed="true">30 days</button>
       </div>
     </div>
-    <div class="chart-wrap" id="chart-wrap"><canvas id="chart" aria-label="Line chart of portions sold, GepukPrep plan and owner's plan"></canvas></div>
+    <div class="chart-wrap" id="chart-wrap"><canvas id="chart" aria-label="Line chart of the report's simulated sales and the GepukPrep plan"></canvas></div>
     <div style="margin-top:14px;max-width:420px">
       <label for="h-buffer" class="muted" style="font-size:13px">Try a different safety buffer: <strong id="h-buffer-v">5%</strong></label>
       <input type="range" id="h-buffer" class="range" min="0" max="15" step="1">
@@ -405,7 +405,7 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
   </div>
   <div class="card">
     <h3>Past days <span class="muted" style="font-size:12px;font-weight:600">Tap a day to open it</span></h3>
-    <div class="tbl-wrap"><table><thead><tr><th>Day</th><th>Sold</th><th>GepukPrep</th><th>Owner</th><th>Data</th></tr></thead><tbody id="h-table"></tbody></table></div>
+    <div class="tbl-wrap"><table><thead><tr><th>Day</th><th>Sales (report)</th><th>GepukPrep</th><th>Difference</th><th>Data</th></tr></thead><tbody id="h-table"></tbody></table></div>
   </div>
 </section>
 
@@ -454,12 +454,12 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
       <h3>Where the data comes from <span class="ms">Sumber data</span></h3>
       <ul class="src-list">
         <li>Day of week <span class="tag tag-real">Real</span> calendar</li>
-        <li>Public holidays <span class="tag tag-real">Real</span> Perak 2026 holiday list</li>
-        <li>Rain <span class="tag tag-real">Real</span> Open-Meteo daily rainfall for Seri Iskandar. A day with 10 mm or more counts as rainy.</li>
-        <li>UTP status <span class="tag tag-real">Real</span> key dates from the UTP Academic Calendar 2026; remaining week boundaries follow UTP's official 12-week semester pattern</li>
-        <li>Effect sizes <span class="tag tag-real">Real</span> the group's IF-THEN rules, from the student survey (n = 40, 77% UTP): weekend ×1.24, rain ×0.85, exam week ×0.75, study break ×0.95; Normal weekday 117 portions. Semester break ×0.50 and public holiday ×0.40 are the group's assumptions (the vendor later said the semester break has about 40% fewer customers). Same values as the report, Section 3.0.</li>
-        <li>Recipe <span class="tag tag-real">Real</span> vendor interview: 1 chicken piece, 225 g rice, about 28 g sambal per plate</li>
-        <li>Daily portions sold and owner's plans <span class="tag tag-sim">Simulated</span> from the survey and vendor numbers above (owner plans from recent days, as the vendor described), until the shop's own records are uploaded</li>
+        <li>Public holidays <span class="tag tag-real">Real</span> Perak 2026 holiday list. The report sets no holiday multiplier, so the owner adds a note on a holiday.</li>
+        <li>UTP status <span class="tag tag-real">Real</span> UTP September 2026 calendar, as in the report: lectures end 27 Nov, study break 28 Nov - 2 Dec, exams 3 - 15 Dec, semester break from 16 Dec</li>
+        <li>Starting values <span class="tag tag-real">Report</span> Section 3.4: normal weekday 117 portions, weekend ×1.24, rain ×0.85, study break ×0.95, exam week ×0.75, semester break ×0.40</li>
+        <li>Recipe <span class="tag tag-real">Report</span> Table 2: 1 chicken piece, 225 g rice (201-250 g), 28 g sambal (25-30 g) per plate</li>
+        <li>Daily sales <span class="tag tag-sim">Simulated</span> the report's 30-day table (21 Nov - 20 Dec 2026), rainy days as chosen in the report. Semester-break rows use ×0.40 as stated in the report.</li>
+        <li>Weather for other days <span class="tag tag-real">Real</span> Open-Meteo forecast for Seri Iskandar when online (10 mm or more = rainy)</li>
         <li>Days saved in Tutup kedai <span class="tag tag-real">Real</span> entered by the crew</li>
       </ul>
       <div class="actions" style="margin-top:14px">

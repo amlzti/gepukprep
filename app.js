@@ -82,10 +82,10 @@
     const src = uploaded || window.GEPUK_DATA;
     return src.map((r) => ({
       date: r.date, holiday: +r.holiday, holiday_name: r.holiday_name || "",
-      rain_mm: +r.rain_mm, weather: r.weather || (+r.rain_mm >= RAIN_MM ? "Rainy" : "Dry"),
+      rain_mm: r.rain_mm === "" || r.rain_mm == null ? null : +r.rain_mm, weather: r.weather || (+r.rain_mm >= RAIN_MM ? "Rainy" : "Dry"),
       utp_status: r.utp_status,
-      owner_planned: +r.owner_planned, portions_sold: +r.portions_sold,
-      leftover_portions: +r.leftover_portions, sold_out: +r.sold_out, source: r.source || "real",
+      owner_planned: r.owner_planned === "" || r.owner_planned == null ? null : +r.owner_planned, portions_sold: +r.portions_sold,
+      leftover_portions: r.leftover_portions === "" || r.leftover_portions == null ? null : +r.leftover_portions, sold_out: +r.sold_out || 0, source: r.source || "real",
     }));
   }
   function allRows() {
@@ -110,19 +110,18 @@
     { key: "sat", label: "Saturday", test: (r) => parse(r.date).getDay() === 6 },
     { key: "sun", label: "Sunday", test: (r) => parse(r.date).getDay() === 0 },
     { key: "rain", label: "Rainy day", test: (r) => r.weather === "Rainy" },
-    { key: "hol", label: "Public holiday", test: (r) => !!r.holiday },
     { key: "utpSt", label: "UTP study break", test: (r) => r.utp_status === "Study break" },
     { key: "utpEx", label: "UTP exam weeks", test: (r) => r.utp_status === "Exams" },
     { key: "utpBr", label: "UTP semester break", test: (r) => r.utp_status === "Break" },
   ];
   // What the group's own study said for each factor (Excel: AI-Gepuk_AI_Survey_Data_Analysis).
-  const SURVEY = { fri: "weekday rule", sat: "weekend rule", sun: "weekend rule", rain: "survey", hol: "assumption",
-    utpSt: "survey", utpEx: "survey", utpBr: "assumption" };
+  const SURVEY = { fri: "report (weekday)", sat: "report", sun: "report", rain: "report",
+    utpSt: "report", utpEx: "report", utpBr: "report" };
   // HYBRID: the group's study gives each factor a STARTING value. The model starts from it and
   // moves towards what the shop's own data shows. The study counts as STUDY_DAYS days of evidence,
   // so with few data days the study decides; with many, the data decides.
   // Values from the group's IF-THEN rules (report Section 3.0 / 4.4). Friday counts as a weekday.
-  const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, hol: 0.40, utpSt: 0.95, utpEx: 0.75, utpBr: 0.50 };
+  const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, utpSt: 0.95, utpEx: 0.75, utpBr: 0.40 };
   const STUDY_DAYS = 14;
   const xOf = (r) => [1].concat(FEATURES.map((f) => (f.test(r) ? 1 : 0)));
 
@@ -156,7 +155,7 @@
     }
     const w = b.map((v, i) => (A[i][i] ? v / A[i][i] : 0));
     const counts = FEATURES.map((f) => rows.filter(f.test).length);
-    const real = FEATURES.map((f) => rows.filter((r) => r.source !== "simulated" && f.test(r)).length);
+    const real = FEATURES.map((f) => rows.filter((r) => !/^simulated/.test(r.source || "") && f.test(r)).length);
     return { w, counts, real, n: rows.length };
   }
   const predictRaw = (m, r) => Math.exp(xOf(r).reduce((s, x, i) => s + x * m.w[i], 0));
@@ -185,6 +184,8 @@
     let weather = "Dry", weatherSrc = "No forecast yet, assumed dry";
     if (known && known.rain_mm != null) {
       weather = known.weather; weatherSrc = "Recorded " + known.rain_mm + " mm (Open-Meteo archive)";
+    } else if (known) {
+      weather = known.weather; weatherSrc = /^simulated/.test(known.source || "") ? "Report's simulated data (Section 3.4)" : "Logged by the crew";
     } else if (forecast[s] != null) {
       weather = forecast[s] >= RAIN_MM ? "Rainy" : "Dry"; weatherSrc = "Live forecast " + forecast[s] + " mm (Open-Meteo)";
     } else if (SAVED_FC && SAVED_FC.days[s] != null) {
@@ -206,12 +207,13 @@
     const r = { date: s, weather: c.weather, holiday: c.holiday ? 1 : 0, utp_status: c.utp };
     const m = fullModel, x = xOf(r);
     let run = mult(m.w[0]);
-    const lines = [{ label: "Typical Mon–Thu day", sub: "dry, no holiday, UTP in lectures", v: Math.round(run), kind: "base" }];
+    const lines = [{ label: "Typical weekday", sub: "dry, UTP lecture period", v: Math.round(run), kind: "base" }];
     FEATURES.forEach((f, i) => {
       if (!x[i + 1]) return;
       const before = Math.round(run); run *= mult(m.w[i + 1]);
       lines.push({ label: f.label, sub: fmtMult(m.w[i + 1]) + " · study ×" + STUDY[f.key].toFixed(2) + " + " + m.counts[i] + " days of data", v: Math.round(run) - before, kind: "learned" });
     });
+    if (c.holiday) lines.push({ label: "Public holiday", sub: (c.holidayName ? c.holidayName + ": " : "") + "no effect in the report's rules. Add a note below if it will be quieter.", v: 0, kind: "rule" });
     let total = lines.reduce((t, l) => t + l.v, 0);
     const modelTotal = total;
 
@@ -280,24 +282,18 @@
   };
 
   // ---------- Evaluation on held-out days ----------
+  // Test the plan on days the model never saw: compare GepukPrep's number with the report's simulated sales.
   function evaluate(buffer) {
-    const out = { days: 0, aiMiss: 0, ownMiss: 0, aiWaste: 0, ownWaste: 0, aiOut: 0, ownOut: 0, series: [] };
+    const out = { days: 0, aiMiss: 0, short: 0, extra: 0, series: [] };
     testRows.forEach((r) => {
-      if (r.owner_planned == null) return;
-      const pred = predictRaw(testModel, r);
-      const ai = Math.round(pred * (1 + buffer / 100));
-      // Score both plans against estimated DEMAND, not "sold": on a sold-out day, sold only
-      // equals what the owner cooked, which would make the owner look perfect on exactly the
-      // days customers were turned away.
-      const sold = r.portions_sold, dem = demandOf(r);
-      const aiOut = ai < Math.round(dem);
-      out.days++;
-      out.aiMiss += Math.abs(ai - dem); out.ownMiss += Math.abs(r.owner_planned - dem);
-      out.aiWaste += Math.max(0, ai - dem); out.ownWaste += r.sold_out ? 0 : Math.max(0, r.owner_planned - sold);
-      out.aiOut += aiOut ? 1 : 0; out.ownOut += r.sold_out ? 1 : 0;
-      out.series.push({ date: r.date, sold, ai, own: r.owner_planned, aiOut, ownOut: !!r.sold_out, source: r.source });
+      const ai = Math.round(predictRaw(testModel, r) * (1 + buffer / 100));
+      const sold = r.portions_sold;
+      out.days++; out.aiMiss += Math.abs(ai - sold);
+      if (ai < sold) out.short++;
+      out.extra += Math.max(0, ai - sold);
+      out.series.push({ date: r.date, sold, ai, diff: ai - sold, source: r.source });
     });
-    if (out.days) { out.aiMiss /= out.days; out.ownMiss /= out.days; }
+    if (out.days) out.aiMiss /= out.days;
     return out;
   }
 
@@ -404,10 +400,10 @@
   }
 
   const SCENARIOS = {
-    weekend: { date: "2026-10-17", o: { weather: "Dry" }, note: null, label: "Sunny weekend during lectures" },
-    rainwk: { date: "2026-10-21", o: { weather: "Rainy" }, note: null, label: "Rainy weekday during lectures" },
-    sembreak: { date: "2026-08-25", o: { weather: "Dry" }, note: null, label: "Weekday in the semester break" },
-    holiday: { date: "2026-11-06", o: { weather: "Dry" }, note: null, label: "Public holiday (Sultan of Perak's Birthday)" },
+    weekend: { date: "2026-11-21", o: { weather: "Dry" }, note: null, label: "Sunny weekend during lectures" },
+    rainwk: { date: "2026-11-24", o: { weather: "Rainy" }, note: null, label: "Rainy weekday during lectures" },
+    sembreak: { date: "2026-12-16", o: { weather: "Dry" }, note: null, label: "Weekday in the UTP semester break" },
+    holiday: { date: "2026-11-06", o: { weather: "Dry" }, note: { text: "Public holiday, many students away", pct: -10 }, label: "Public holiday (owner adds a note)" },
     event: { date: "2026-11-28", o: { weather: "Dry" }, note: { text: "UTP convocation", pct: 25 }, label: "Big campus event the data can't know about" },
   };
 
@@ -417,11 +413,10 @@
     const ev = evaluate(settings.buffer);
     $("h-buffer").value = settings.buffer; $("h-buffer-v").textContent = settings.buffer + "%";
     $("m-ai").textContent = "±" + ev.aiMiss.toFixed(1);
-    $("m-own").textContent = "±" + ev.ownMiss.toFixed(1);
-    const kg = (ev.ownWaste - ev.aiWaste) * kgPerPortion();
-    $("m-waste").textContent = Math.abs(kg).toFixed(0) + " kg";
-    $("m-waste-l").textContent = kg >= 0 ? "less food left over than the owner's plans" : "more food left over than the owner's plans";
-    $("m-out").textContent = ev.aiOut + " vs " + ev.ownOut;
+    $("m-own").textContent = ev.short + " of " + ev.days;
+    $("m-waste").textContent = (ev.extra * kgPerPortion()).toFixed(1) + " kg";
+    $("m-waste-l").textContent = ev.extra + " extra portions over " + ev.days + " days (mostly the safety buffer)";
+    $("m-out").textContent = ev.days;
     $("m-days").textContent = ev.days;
     $("m-period").textContent = ev.series.length ? pretty(ev.series[0].date) + " to " + pretty(ev.series[ev.series.length - 1].date) : "";
 
@@ -430,9 +425,8 @@
     const data = {
       labels,
       datasets: [
-        { label: "Actually sold", data: s.map((d) => d.sold), borderColor: "#2A1205", backgroundColor: "#2A1205", borderWidth: 3, pointRadius: 3, tension: 0.2 },
+        { label: "Simulated sales (report)", data: s.map((d) => d.sold), borderColor: "#2A1205", backgroundColor: "#2A1205", borderWidth: 3, pointRadius: 3, tension: 0.2 },
         { label: "GepukPrep plan", data: s.map((d) => d.ai), borderColor: "#E31E24", backgroundColor: "#E31E24", borderWidth: 3, pointRadius: 3, pointStyle: "rectRot", tension: 0.2 },
-        { label: "Owner's own plan", data: s.map((d) => d.own), borderColor: "#B8860B", backgroundColor: "#B8860B", borderWidth: 2, borderDash: [6, 4], pointRadius: 2, tension: 0.2 },
       ],
     };
     if (window.Chart) {
@@ -455,8 +449,7 @@
 
     $("h-table").innerHTML = s.slice().reverse().map((d) =>
       '<tr tabindex="0" data-date="' + d.date + '"><td>' + pretty(d.date) + "</td><td>" + d.sold + "</td><td>" + d.ai +
-      (d.aiOut ? ' <span class="pill pill-bad">ran out</span>' : "") + "</td><td>" + d.own +
-      (d.ownOut ? ' <span class="pill pill-bad">ran out</span>' : "") + "</td><td>" + d.source + "</td></tr>").join("");
+      (d.diff < 0 ? ' <span class="pill pill-bad">short</span>' : "") + "</td><td>" + signed(d.diff) + "</td><td>" + d.source + "</td></tr>").join("");
   }
 
   // ---------- DAILY LOG ----------
@@ -491,7 +484,7 @@
   function renderData() {
     const m = fullModel;
     $("d-coef").innerHTML =
-      "<tr><td>Typical Mon–Thu day</td><td>117 portions <span class=\"muted\">report baseline</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td><td>" + m.n + "</td></tr>" +
+      "<tr><td>Typical weekday</td><td>117 portions <span class=\"muted\">report</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td><td>" + m.n + "</td></tr>" +
       FEATURES.map((f, i) => {
         const n = m.counts[i], studyPct = Math.round(STUDY_DAYS / (STUDY_DAYS + n) * 100);
         return "<tr><td>" + f.label + "</td><td>×" + STUDY[f.key].toFixed(2) + ' <span class="muted">' + SURVEY[f.key] + "</span></td><td>" + fmtMult(dataOnlyModel.w[i + 1]) +
