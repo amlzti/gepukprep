@@ -1,267 +1,267 @@
-date,dow,holiday,holiday_name,rain_mm,weather,utp_status,uitm_status,kpm_status,owner_planned,portions_sold,leftover_portions,sold_out,source
-2026-03-01,Sun,0,,0.3,Dry,Lecture,Break,Study break,119,119,0,1,simulated
-2026-03-02,Mon,0,,9.6,Dry,Lecture,Break,Study break,136,112,24,0,simulated
-2026-03-03,Tue,0,,5.4,Dry,Lecture,Break,Study break,128,105,23,0,simulated
-2026-03-04,Wed,0,,1.4,Dry,Lecture,Break,Study break,120,113,7,0,simulated
-2026-03-05,Thu,0,,1.1,Dry,Lecture,Break,Exams,121,109,12,0,simulated
-2026-03-06,Fri,0,,6.4,Dry,Lecture,Break,Exams,120,111,9,0,simulated
-2026-03-07,Sat,1,Nuzul Al-Quran,1.3,Dry,Lecture,Break,Exams,119,55,64,0,simulated
-2026-03-08,Sun,0,,0.2,Dry,Lecture,Break,Exams,108,108,0,1,simulated
-2026-03-09,Mon,0,,4.6,Dry,Lecture,Break,Exams,110,103,7,0,simulated
-2026-03-10,Tue,0,,0.3,Dry,Lecture,Break,Exams,107,104,3,0,simulated
-2026-03-11,Wed,0,,1.0,Dry,Lecture,Break,Exams,108,104,4,0,simulated
-2026-03-12,Thu,0,,12.4,Rainy,Lecture,Break,Exams,106,97,9,0,simulated
-2026-03-13,Fri,0,,5.4,Dry,Lecture,Break,Exams,103,103,0,1,simulated
-2026-03-14,Sat,0,,5.8,Dry,Lecture,Break,Exams,103,103,0,1,simulated
-2026-03-15,Sun,0,,0.7,Dry,Lecture,Break,Exams,118,118,0,1,simulated
-2026-03-16,Mon,0,,6.0,Dry,Lecture,Break,Exams,116,111,5,0,simulated
-2026-03-17,Tue,0,,1.8,Dry,Lecture,Break,Exams,114,108,6,0,simulated
-2026-03-18,Wed,0,,3.6,Dry,Lecture,Break,Break,116,107,9,0,simulated
-2026-03-19,Thu,0,,3.3,Dry,Lecture,Break,Break,115,106,9,0,simulated
-2026-03-20,Fri,0,,6.1,Dry,Lecture,Break,Break,120,109,11,0,simulated
-2026-03-21,Sat,1,Hari Raya Aidilfitri,0.6,Dry,Lecture,Break,Break,118,56,62,0,simulated
-2026-03-22,Sun,1,Hari Raya Aidilfitri (2nd day),3.8,Dry,Lecture,Break,Break,107,52,55,0,simulated
-2026-03-23,Mon,1,Hari Raya Aidilfitri (replacement),1.4,Dry,Lecture,Break,Break,93,43,50,0,simulated
-2026-03-24,Tue,0,,2.0,Dry,Lecture,Break,Break,86,86,0,1,simulated
-2026-03-25,Wed,0,,0.1,Dry,Lecture,Break,Break,85,85,0,1,simulated
-2026-03-26,Thu,0,,0.3,Dry,Lecture,Break,Break,86,86,0,1,simulated
-2026-03-27,Fri,0,,7.0,Dry,Lecture,Break,Break,87,87,0,1,simulated
-2026-03-28,Sat,0,,2.9,Dry,Lecture,Break,Break,86,86,0,1,simulated
-2026-03-29,Sun,0,,4.7,Dry,Lecture,Break,Break,97,97,0,1,simulated
-2026-03-30,Mon,0,,7.5,Dry,Lecture,Lecture,Lecture,107,107,0,1,simulated
-2026-03-31,Tue,0,,5.5,Dry,Lecture,Lecture,Lecture,119,112,7,0,simulated
-2026-04-01,Wed,0,,9.8,Dry,Lecture,Lecture,Lecture,121,114,7,0,simulated
-2026-04-02,Thu,0,,1.0,Dry,Lecture,Lecture,Lecture,124,120,4,0,simulated
-2026-04-03,Fri,0,,1.0,Dry,Lecture,Lecture,Lecture,124,113,11,0,simulated
-2026-04-04,Sat,0,,7.5,Dry,Study break,Lecture,Lecture,124,124,0,1,simulated
-2026-04-05,Sun,0,,12.7,Rainy,Study break,Lecture,Lecture,128,119,9,0,simulated
-2026-04-06,Mon,0,,7.6,Dry,Study break,Lecture,Lecture,124,107,17,0,simulated
-2026-04-07,Tue,0,,13.0,Rainy,Exams,Lecture,Lecture,122,77,45,0,simulated
-2026-04-08,Wed,0,,11.7,Rainy,Exams,Lecture,Lecture,114,78,36,0,simulated
-2026-04-09,Thu,0,,8.6,Dry,Exams,Lecture,Lecture,112,89,23,0,simulated
-2026-04-10,Fri,0,,1.8,Dry,Exams,Lecture,Lecture,107,87,20,0,simulated
-2026-04-11,Sat,0,,6.4,Dry,Exams,Lecture,Lecture,102,102,0,1,simulated
-2026-04-12,Sun,0,,1.1,Dry,Exams,Lecture,Lecture,100,100,0,1,simulated
-2026-04-13,Mon,0,,11.2,Rainy,Exams,Lecture,Lecture,97,76,21,0,simulated
-2026-04-14,Tue,0,,12.5,Rainy,Exams,Lecture,Lecture,95,74,21,0,simulated
-2026-04-15,Wed,0,,6.7,Dry,Exams,Lecture,Lecture,90,83,7,0,simulated
-2026-04-16,Thu,0,,17.2,Rainy,Exams,Lecture,Lecture,95,80,15,0,simulated
-2026-04-17,Fri,0,,7.5,Dry,Exams,Lecture,Lecture,94,90,4,0,simulated
-2026-04-18,Sat,0,,7.2,Dry,Exams,Lecture,Lecture,92,92,0,1,simulated
-2026-04-19,Sun,0,,16.8,Rainy,Exams,Lecture,Lecture,91,90,1,0,simulated
-2026-04-20,Mon,0,,14.4,Rainy,Exams,Lecture,Lecture,89,77,12,0,simulated
-2026-04-21,Tue,0,,15.8,Rainy,Exams,Lecture,Lecture,91,77,14,0,simulated
-2026-04-22,Wed,0,,5.2,Dry,Break,Lecture,Lecture,90,61,29,0,simulated
-2026-04-23,Thu,0,,8.3,Dry,Break,Lecture,Lecture,88,53,35,0,simulated
-2026-04-24,Fri,0,,2.6,Dry,Break,Lecture,Lecture,82,58,24,0,simulated
-2026-04-25,Sat,0,,17.0,Rainy,Break,Lecture,Lecture,77,58,19,0,simulated
-2026-04-26,Sun,0,,1.5,Dry,Break,Lecture,Lecture,69,69,0,1,simulated
-2026-04-27,Mon,0,,1.2,Dry,Break,Lecture,Lecture,70,55,15,0,simulated
-2026-04-28,Tue,0,,0.3,Dry,Break,Lecture,Lecture,66,60,6,0,simulated
-2026-04-29,Wed,0,,10.9,Rainy,Break,Lecture,Lecture,61,55,6,0,simulated
-2026-04-30,Thu,0,,18.9,Rainy,Break,Lecture,Lecture,61,52,9,0,simulated
-2026-05-01,Fri,1,Labour Day,34.1,Rainy,Break,Lecture,Lecture,62,18,44,0,simulated
-2026-05-02,Sat,0,,7.0,Dry,Break,Lecture,Lecture,54,54,0,1,simulated
-2026-05-03,Sun,0,,15.0,Rainy,Break,Lecture,Lecture,56,56,0,1,simulated
-2026-05-04,Mon,0,,12.5,Rainy,Break,Lecture,Lecture,55,52,3,0,simulated
-2026-05-05,Tue,0,,3.1,Dry,Break,Lecture,Lecture,54,54,0,0,simulated
-2026-05-06,Wed,0,,18.5,Rainy,Break,Lecture,Lecture,52,48,4,0,simulated
-2026-05-07,Thu,0,,24.1,Rainy,Break,Lecture,Lecture,51,51,0,1,simulated
-2026-05-08,Fri,0,,20.1,Rainy,Break,Lecture,Lecture,54,53,1,0,simulated
-2026-05-09,Sat,0,,20.6,Rainy,Break,Lecture,Lecture,59,59,0,1,simulated
-2026-05-10,Sun,0,,15.7,Rainy,Break,Lecture,Lecture,56,56,0,1,simulated
-2026-05-11,Mon,0,,5.4,Dry,Lecture,Lecture,Lecture,58,58,0,1,simulated
-2026-05-12,Tue,0,,17.3,Rainy,Lecture,Lecture,Lecture,68,68,0,1,simulated
-2026-05-13,Wed,0,,7.6,Dry,Lecture,Lecture,Lecture,75,75,0,1,simulated
-2026-05-14,Thu,0,,12.4,Rainy,Lecture,Lecture,Lecture,85,85,0,1,simulated
-2026-05-15,Fri,0,,13.2,Rainy,Lecture,Lecture,Lecture,91,91,0,1,simulated
-2026-05-16,Sat,0,,14.3,Rainy,Lecture,Lecture,Lecture,100,100,0,1,simulated
-2026-05-17,Sun,0,,0.5,Dry,Lecture,Lecture,Lecture,105,105,0,1,simulated
-2026-05-18,Mon,0,,0.8,Dry,Lecture,Lecture,Lecture,121,118,3,0,simulated
-2026-05-19,Tue,0,,0.2,Dry,Lecture,Lecture,Lecture,121,114,7,0,simulated
-2026-05-20,Wed,0,,3.8,Dry,Lecture,Lecture,Lecture,120,120,0,1,simulated
-2026-05-21,Thu,0,,0.0,Dry,Lecture,Lecture,Lecture,121,118,3,0,simulated
-2026-05-22,Fri,0,,0.0,Dry,Lecture,Lecture,Lecture,125,114,11,0,simulated
-2026-05-23,Sat,0,,15.1,Rainy,Lecture,Lecture,Lecture,126,121,5,0,simulated
-2026-05-24,Sun,0,,4.0,Dry,Lecture,Lecture,Lecture,125,125,0,1,simulated
-2026-05-25,Mon,0,,1.6,Dry,Lecture,Study break,Study break,121,111,10,0,simulated
-2026-05-26,Tue,0,,0.8,Dry,Lecture,Study break,Study break,125,115,10,0,simulated
-2026-05-27,Wed,1,Hari Raya Haji,0.5,Dry,Lecture,Study break,Study break,120,41,79,0,simulated
-2026-05-28,Thu,0,,3.6,Dry,Lecture,Study break,Study break,111,111,0,1,simulated
-2026-05-29,Fri,0,,0.6,Dry,Lecture,Study break,Study break,112,112,0,1,simulated
-2026-05-30,Sat,0,,0.3,Dry,Lecture,Study break,Study break,112,112,0,1,simulated
-2026-05-31,Sun,1,Wesak Day,0.4,Dry,Lecture,Study break,Study break,115,59,56,0,simulated
-2026-06-01,Mon,1,Agong's Birthday,0.1,Dry,Lecture,Study break,Lecture,100,43,57,0,simulated
-2026-06-02,Tue,0,,1.4,Dry,Lecture,Study break,Lecture,91,91,0,1,simulated
-2026-06-03,Wed,0,,0.0,Dry,Lecture,Lecture,Lecture,92,92,0,1,simulated
-2026-06-04,Thu,0,,2.4,Dry,Lecture,Lecture,Lecture,103,103,0,1,simulated
-2026-06-05,Fri,0,,16.3,Rainy,Lecture,Lecture,Lecture,105,95,10,0,simulated
-2026-06-06,Sat,0,,0.7,Dry,Lecture,Lecture,Lecture,101,101,0,1,simulated
-2026-06-07,Sun,0,,2.1,Dry,Lecture,Lecture,Lecture,100,100,0,1,simulated
-2026-06-08,Mon,0,,4.2,Dry,Lecture,Lecture,Lecture,118,118,0,1,simulated
-2026-06-09,Tue,0,,3.0,Dry,Lecture,Lecture,Lecture,126,112,14,0,simulated
-2026-06-10,Wed,0,,3.8,Dry,Lecture,Lecture,Lecture,123,122,1,0,simulated
-2026-06-11,Thu,0,,3.4,Dry,Lecture,Lecture,Lecture,128,122,6,0,simulated
-2026-06-12,Fri,0,,3.8,Dry,Lecture,Lecture,Lecture,127,114,13,0,simulated
-2026-06-13,Sat,0,,2.3,Dry,Lecture,Lecture,Lecture,130,130,0,1,simulated
-2026-06-14,Sun,0,,13.4,Rainy,Lecture,Lecture,Lecture,132,126,6,0,simulated
-2026-06-15,Mon,0,,6.7,Dry,Lecture,Lecture,Lecture,124,114,10,0,simulated
-2026-06-16,Tue,0,,2.4,Dry,Lecture,Lecture,Lecture,125,114,11,0,simulated
-2026-06-17,Wed,1,Awal Muharram,8.1,Dry,Lecture,Lecture,Lecture,126,48,78,0,simulated
-2026-06-18,Thu,0,,1.4,Dry,Lecture,Lecture,Lecture,114,113,1,0,simulated
-2026-06-19,Fri,0,,14.6,Rainy,Lecture,Lecture,Lecture,113,96,17,0,simulated
-2026-06-20,Sat,0,,4.3,Dry,Lecture,Lecture,Lecture,111,111,0,1,simulated
-2026-06-21,Sun,0,,11.7,Rainy,Lecture,Lecture,Lecture,110,110,0,1,simulated
-2026-06-22,Mon,0,,1.6,Dry,Lecture,Lecture,Lecture,110,110,0,1,simulated
-2026-06-23,Tue,0,,3.5,Dry,Lecture,Lecture,Lecture,110,110,0,1,simulated
-2026-06-24,Wed,0,,19.7,Rainy,Lecture,Lecture,Lecture,113,102,11,0,simulated
-2026-06-25,Thu,0,,2.6,Dry,Lecture,Lecture,Lecture,122,116,6,0,simulated
-2026-06-26,Fri,0,,0.6,Dry,Lecture,Lecture,Lecture,118,115,3,0,simulated
-2026-06-27,Sat,0,,1.7,Dry,Lecture,Lecture,Study break,125,125,0,1,simulated
-2026-06-28,Sun,0,,14.9,Rainy,Lecture,Lecture,Study break,121,121,0,1,simulated
-2026-06-29,Mon,0,,14.9,Rainy,Lecture,Lecture,Study break,125,101,24,0,simulated
-2026-06-30,Tue,0,,3.7,Dry,Lecture,Lecture,Study break,118,118,0,1,simulated
-2026-07-01,Wed,0,,2.2,Dry,Lecture,Lecture,Study break,120,111,9,0,simulated
-2026-07-02,Thu,0,,0.0,Dry,Lecture,Lecture,Exams,121,112,9,0,simulated
-2026-07-03,Fri,0,,0.2,Dry,Lecture,Lecture,Exams,122,120,2,0,simulated
-2026-07-04,Sat,0,,0.0,Dry,Lecture,Lecture,Exams,120,120,0,1,simulated
-2026-07-05,Sun,0,,6.1,Dry,Lecture,Lecture,Exams,125,125,0,1,simulated
-2026-07-06,Mon,0,,3.4,Dry,Lecture,Lecture,Exams,128,118,10,0,simulated
-2026-07-07,Tue,0,,2.7,Dry,Lecture,Lecture,Exams,129,113,16,0,simulated
-2026-07-08,Wed,0,,2.1,Dry,Lecture,Lecture,Exams,126,119,7,0,simulated
-2026-07-09,Thu,0,,0.8,Dry,Lecture,Lecture,Exams,126,118,8,0,simulated
-2026-07-10,Fri,0,,1.9,Dry,Lecture,Lecture,Exams,126,114,12,0,simulated
-2026-07-11,Sat,0,,4.7,Dry,Lecture,Lecture,Exams,126,126,0,1,simulated
-2026-07-12,Sun,0,,0.0,Dry,Lecture,Lecture,Exams,125,125,0,1,simulated
-2026-07-13,Mon,0,,2.0,Dry,Lecture,Study break,Exams,130,114,16,0,simulated
-2026-07-14,Tue,0,,1.1,Dry,Lecture,Study break,Exams,129,111,18,0,simulated
-2026-07-15,Wed,0,,2.5,Dry,Lecture,Study break,Exams,127,110,17,0,simulated
-2026-07-16,Thu,0,,1.9,Dry,Lecture,Study break,Break,127,109,18,0,simulated
-2026-07-17,Fri,0,,9.4,Dry,Lecture,Study break,Break,123,106,17,0,simulated
-2026-07-18,Sat,0,,13.2,Rainy,Lecture,Study break,Break,121,116,5,0,simulated
-2026-07-19,Sun,0,,7.5,Dry,Lecture,Study break,Break,117,117,0,1,simulated
-2026-07-20,Mon,0,,10.8,Rainy,Lecture,Exams,Break,120,93,27,0,simulated
-2026-07-21,Tue,0,,4.8,Dry,Lecture,Exams,Break,114,107,7,0,simulated
-2026-07-22,Wed,0,,6.2,Dry,Lecture,Exams,Break,111,103,8,0,simulated
-2026-07-23,Thu,0,,3.8,Dry,Lecture,Exams,Break,110,106,4,0,simulated
-2026-07-24,Fri,0,,9.7,Dry,Lecture,Exams,Break,110,104,6,0,simulated
-2026-07-25,Sat,0,,1.4,Dry,Lecture,Exams,Break,113,113,0,1,simulated
-2026-07-26,Sun,0,,1.3,Dry,Lecture,Exams,Break,114,114,0,1,simulated
-2026-07-27,Mon,0,,6.4,Dry,Lecture,Exams,Break,116,110,6,0,simulated
-2026-07-28,Tue,0,,1.3,Dry,Lecture,Exams,Break,119,113,6,0,simulated
-2026-07-29,Wed,0,,4.1,Dry,Lecture,Exams,Break,122,103,19,0,simulated
-2026-07-30,Thu,0,,0.6,Dry,Lecture,Exams,Break,119,108,11,0,simulated
-2026-07-31,Fri,0,,3.4,Dry,Lecture,Exams,Break,119,112,7,0,simulated
-2026-08-01,Sat,0,,4.5,Dry,Study break,Exams,Break,123,123,0,1,simulated
-2026-08-02,Sun,0,,0.8,Dry,Study break,Exams,Break,119,119,0,1,simulated
-2026-08-03,Mon,0,,3.5,Dry,Study break,Exams,Lecture,120,111,9,0,simulated
-2026-08-04,Tue,0,,3.7,Dry,Exams,Exams,Lecture,119,84,35,0,simulated
-2026-08-05,Wed,0,,0.7,Dry,Exams,Exams,Lecture,112,85,27,0,simulated
-2026-08-06,Thu,0,,0.1,Dry,Exams,Exams,Lecture,115,86,29,0,simulated
-2026-08-07,Fri,0,,2.8,Dry,Exams,Exams,Lecture,110,84,26,0,simulated
-2026-08-08,Sat,0,,0.9,Dry,Exams,Exams,Lecture,106,105,1,0,simulated
-2026-08-09,Sun,0,,2.3,Dry,Exams,Exams,Lecture,100,100,0,1,simulated
-2026-08-10,Mon,0,,3.5,Dry,Exams,Break,Lecture,96,83,13,0,simulated
-2026-08-11,Tue,0,,1.6,Dry,Exams,Break,Lecture,93,77,16,0,simulated
-2026-08-12,Wed,0,,0.2,Dry,Exams,Break,Lecture,90,82,8,0,simulated
-2026-08-13,Thu,0,,1.5,Dry,Exams,Break,Lecture,92,77,15,0,simulated
-2026-08-14,Fri,0,,10.5,Rainy,Exams,Break,Lecture,88,66,22,0,simulated
-2026-08-15,Sat,0,,0.1,Dry,Exams,Break,Lecture,85,85,0,1,simulated
-2026-08-16,Sun,0,,1.6,Dry,Exams,Break,Lecture,86,86,0,1,simulated
-2026-08-17,Mon,0,,5.2,Dry,Exams,Break,Lecture,86,86,0,0,simulated
-2026-08-18,Tue,0,,8.7,Dry,Exams,Break,Lecture,85,85,0,1,simulated
-2026-08-19,Wed,0,,1.9,Dry,Break,Break,Lecture,88,56,32,0,simulated
-2026-08-20,Thu,0,,0.0,Dry,Break,Break,Lecture,83,55,28,0,simulated
-2026-08-21,Fri,0,,0.3,Dry,Break,Break,Lecture,79,56,23,0,simulated
-2026-08-22,Sat,0,,0.0,Dry,Break,Break,Lecture,80,69,11,0,simulated
-2026-08-23,Sun,0,,0.0,Dry,Break,Break,Lecture,73,65,8,0,simulated
-2026-08-24,Mon,0,,0.1,Dry,Break,Break,Lecture,70,50,20,0,simulated
-2026-08-25,Tue,0,,5.4,Dry,Break,Break,Lecture,65,58,7,0,simulated
-2026-08-26,Wed,1,Prophet Muhammad's Birthday,2.2,Dry,Break,Break,Lecture,62,23,39,0,simulated
-2026-08-27,Thu,0,,2.5,Dry,Break,Break,Lecture,54,52,2,0,simulated
-2026-08-28,Fri,0,,0.2,Dry,Break,Break,Lecture,54,50,4,0,simulated
-2026-08-29,Sat,0,,9.0,Dry,Break,Break,Lecture,54,54,0,1,simulated
-2026-08-30,Sun,0,,0.1,Dry,Break,Break,Lecture,53,53,0,1,simulated
-2026-08-31,Mon,1,Merdeka Day,0.1,Dry,Break,Break,Lecture,55,27,28,0,simulated
-2026-09-01,Tue,0,,1.0,Dry,Break,Break,Lecture,51,51,0,1,simulated
-2026-09-02,Wed,0,,0.2,Dry,Break,Break,Lecture,51,51,0,1,simulated
-2026-09-03,Thu,0,,0.6,Dry,Break,Break,Lecture,57,57,0,1,simulated
-2026-09-04,Fri,0,,1.3,Dry,Break,Break,Lecture,57,55,2,0,simulated
-2026-09-05,Sat,0,,1.0,Dry,Break,Break,Lecture,56,56,0,1,simulated
-2026-09-06,Sun,0,,0.8,Dry,Break,Break,Lecture,58,58,0,1,simulated
-2026-09-07,Mon,0,,0.7,Dry,Lecture,Break,Lecture,56,56,0,1,simulated
-2026-09-08,Tue,0,,2.9,Dry,Lecture,Break,Lecture,69,69,0,1,simulated
-2026-09-09,Wed,0,,9.8,Dry,Lecture,Break,Lecture,78,78,0,1,simulated
-2026-09-10,Thu,0,,7.9,Dry,Lecture,Break,Lecture,84,84,0,1,simulated
-2026-09-11,Fri,0,,13.6,Rainy,Lecture,Break,Lecture,94,93,1,0,simulated
-2026-09-12,Sat,0,,1.5,Dry,Lecture,Break,Lecture,97,97,0,1,simulated
-2026-09-13,Sun,0,,4.5,Dry,Lecture,Break,Lecture,106,106,0,1,simulated
-2026-09-14,Mon,0,,0.8,Dry,Lecture,Break,Study break,116,107,9,0,simulated
-2026-09-15,Tue,0,,0.8,Dry,Lecture,Break,Study break,118,111,7,0,simulated
-2026-09-16,Wed,1,Malaysia Day,8.0,Dry,Lecture,Break,Study break,120,47,73,0,simulated
-2026-09-17,Thu,0,,1.5,Dry,Lecture,Break,Study break,109,109,0,1,simulated
-2026-09-18,Fri,0,,3.3,Dry,Lecture,Break,Study break,107,107,0,0,simulated
-2026-09-19,Sat,0,,6.7,Dry,Lecture,Break,Study break,109,109,0,1,simulated
-2026-09-20,Sun,0,,11.3,Rainy,Lecture,Break,Study break,114,110,4,0,simulated
-2026-09-21,Mon,0,,1.0,Dry,Lecture,Break,Lecture,109,109,0,1,simulated
-2026-09-22,Tue,0,,22.0,Rainy,Lecture,Break,Lecture,109,88,21,0,simulated
-2026-09-23,Wed,0,,12.6,Rainy,Lecture,Break,Lecture,104,89,15,0,simulated
-2026-09-24,Thu,0,,10.2,Rainy,Lecture,Break,Lecture,113,96,17,0,simulated
-2026-09-25,Fri,0,,6.1,Dry,Lecture,Break,Lecture,110,107,3,0,simulated
-2026-09-26,Sat,0,,14.1,Rainy,Lecture,Break,Lecture,112,112,0,0,simulated
-2026-09-27,Sun,0,,1.9,Dry,Lecture,Break,Lecture,105,105,0,1,simulated
-2026-09-28,Mon,0,,0.5,Dry,Lecture,Lecture,Lecture,107,107,0,1,simulated
-2026-09-29,Tue,0,,2.7,Dry,Lecture,Lecture,Lecture,112,112,0,0,simulated
-2026-09-30,Wed,0,,36.6,Rainy,Lecture,Lecture,Lecture,113,100,13,0,simulated
-2026-10-01,Thu,0,,2.4,Dry,Lecture,Lecture,Lecture,117,117,0,1,simulated
-2026-10-02,Fri,0,,18.9,Rainy,Lecture,Lecture,Lecture,116,104,12,0,simulated
-2026-10-03,Sat,0,,11.1,Rainy,Lecture,Lecture,Lecture,115,115,0,1,simulated
-2026-10-04,Sun,0,,6.3,Dry,Lecture,Lecture,Lecture,121,121,0,1,simulated
-2026-10-05,Mon,0,,7.0,Dry,Lecture,Lecture,Lecture,122,117,5,0,simulated
-2026-10-06,Tue,0,,15.0,Rainy,Lecture,Lecture,Lecture,118,98,20,0,simulated
-2026-10-07,Wed,0,,1.7,Dry,Lecture,Lecture,Lecture,120,120,0,1,simulated
-2026-10-08,Thu,0,,2.0,Dry,Lecture,Lecture,Lecture,119,115,4,0,simulated
-2026-10-09,Fri,0,,1.2,Dry,Lecture,Lecture,Lecture,120,116,4,0,simulated
-2026-10-10,Sat,0,,27.2,Rainy,Lecture,Lecture,Lecture,122,122,0,0,simulated
-2026-10-11,Sun,0,,18.2,Rainy,Lecture,Lecture,Lecture,120,120,0,1,simulated
-2026-10-12,Mon,0,,19.3,Rainy,Lecture,Lecture,Lecture,116,104,12,0,simulated
-2026-10-13,Tue,0,,6.4,Dry,Lecture,Lecture,Lecture,119,119,0,1,simulated
-2026-10-14,Wed,0,,2.4,Dry,Lecture,Lecture,Lecture,120,118,2,0,simulated
-2026-10-15,Thu,0,,6.2,Dry,Lecture,Lecture,Lecture,118,118,0,1,simulated
-2026-10-16,Fri,0,,5.3,Dry,Lecture,Lecture,Lecture,118,118,0,1,simulated
-2026-10-17,Sat,0,,25.3,Rainy,Lecture,Lecture,Lecture,122,122,0,1,simulated
-2026-10-18,Sun,0,,11.9,Rainy,Lecture,Lecture,Lecture,119,119,0,1,simulated
-2026-10-19,Mon,0,,1.4,Dry,Lecture,Lecture,Lecture,122,113,9,0,simulated
-2026-10-20,Tue,0,,17.4,Rainy,Lecture,Lecture,Lecture,125,104,21,0,simulated
-2026-10-21,Wed,0,,17.8,Rainy,Lecture,Lecture,Lecture,117,99,18,0,simulated
-2026-10-22,Thu,0,,7.0,Dry,Lecture,Lecture,Lecture,116,116,0,0,simulated
-2026-10-23,Fri,0,,21.4,Rainy,Lecture,Lecture,Lecture,118,96,22,0,simulated
-2026-10-24,Sat,0,,14.1,Rainy,Lecture,Lecture,Lecture,111,111,0,1,simulated
-2026-10-25,Sun,0,,30.9,Rainy,Lecture,Lecture,Lecture,113,113,0,1,simulated
-2026-10-26,Mon,0,,12.3,Rainy,Lecture,Lecture,Lecture,113,95,18,0,simulated
-2026-10-27,Tue,0,,21.7,Rainy,Lecture,Lecture,Lecture,110,103,7,0,simulated
-2026-10-28,Wed,0,,8.5,Dry,Lecture,Lecture,Lecture,110,110,0,1,simulated
-2026-10-29,Thu,0,,33.0,Rainy,Lecture,Lecture,Lecture,110,101,9,0,simulated
-2026-10-30,Fri,0,,1.0,Dry,Lecture,Lecture,Lecture,109,109,0,1,simulated
-2026-10-31,Sat,0,,8.2,Dry,Lecture,Lecture,Study break,115,115,0,1,simulated
-2026-11-01,Sun,0,,4.3,Dry,Lecture,Lecture,Study break,120,120,0,1,simulated
-2026-11-02,Mon,0,,15.1,Rainy,Lecture,Lecture,Study break,118,98,20,0,simulated
-2026-11-03,Tue,0,,22.5,Rainy,Lecture,Lecture,Study break,124,94,30,0,simulated
-2026-11-04,Wed,0,,18.9,Rainy,Lecture,Lecture,Study break,118,97,21,0,simulated
-2026-11-05,Thu,0,,21.0,Rainy,Lecture,Lecture,Exams,116,102,14,0,simulated
-2026-11-06,Fri,1,Sultan of Perak's Birthday,6.8,Dry,Lecture,Lecture,Exams,117,46,71,0,simulated
-2026-11-07,Sat,0,,3.4,Dry,Lecture,Lecture,Exams,106,106,0,1,simulated
-2026-11-08,Sun,1,Deepavali,25.6,Rainy,Lecture,Lecture,Exams,109,53,56,0,simulated
-2026-11-09,Mon,1,Deepavali (replacement),11.2,Rainy,Lecture,Lecture,Exams,92,40,52,0,simulated
-2026-11-10,Tue,0,,15.5,Rainy,Lecture,Lecture,Exams,86,86,0,1,simulated
-2026-11-11,Wed,0,,22.9,Rainy,Lecture,Lecture,Exams,87,87,0,1,simulated
-2026-11-12,Thu,0,,11.5,Rainy,Lecture,Lecture,Exams,86,86,0,1,simulated
-2026-11-13,Fri,0,,24.2,Rainy,Lecture,Lecture,Exams,84,84,0,1,simulated
-2026-11-14,Sat,0,,16.4,Rainy,Lecture,Lecture,Exams,91,91,0,1,simulated
-2026-11-15,Sun,0,,34.4,Rainy,Lecture,Lecture,Exams,88,88,0,1,simulated
-2026-11-16,Mon,0,,15.7,Rainy,Lecture,Lecture,Exams,99,99,0,1,simulated
-2026-11-17,Tue,0,,35.6,Rainy,Lecture,Lecture,Exams,107,94,13,0,simulated
-2026-11-18,Wed,0,,30.6,Rainy,Lecture,Lecture,Exams,109,97,12,0,simulated
-2026-11-19,Thu,0,,24.8,Rainy,Lecture,Lecture,Exams,106,97,9,0,simulated
-2026-11-20,Fri,0,,13.9,Rainy,Lecture,Lecture,Break,106,96,10,0,simulated
-2026-11-21,Sat,0,,9.3,Dry,Lecture,Lecture,Break,108,108,0,1,simulated
+date,dow,holiday,holiday_name,rain_mm,weather,utp_status,owner_planned,portions_sold,leftover_portions,sold_out,source
+2026-03-01,Sun,0,,0.3,Dry,Lecture,119,119,0,1,simulated
+2026-03-02,Mon,0,,9.6,Dry,Lecture,146,120,26,0,simulated
+2026-03-03,Tue,0,,5.4,Dry,Lecture,137,113,24,0,simulated
+2026-03-04,Wed,0,,1.4,Dry,Lecture,129,121,8,0,simulated
+2026-03-05,Thu,0,,1.1,Dry,Lecture,130,118,12,0,simulated
+2026-03-06,Fri,0,,6.4,Dry,Lecture,129,120,9,0,simulated
+2026-03-07,Sat,1,Nuzul Al-Quran,1.3,Dry,Lecture,128,60,68,0,simulated
+2026-03-08,Sun,0,,0.2,Dry,Lecture,116,116,0,1,simulated
+2026-03-09,Mon,0,,4.6,Dry,Lecture,119,112,7,0,simulated
+2026-03-10,Tue,0,,0.3,Dry,Lecture,115,113,2,0,simulated
+2026-03-11,Wed,0,,1.0,Dry,Lecture,116,113,3,0,simulated
+2026-03-12,Thu,0,,12.4,Rainy,Lecture,115,104,11,0,simulated
+2026-03-13,Fri,0,,5.4,Dry,Lecture,112,112,0,1,simulated
+2026-03-14,Sat,0,,5.8,Dry,Lecture,112,112,0,1,simulated
+2026-03-15,Sun,0,,0.7,Dry,Lecture,128,128,0,1,simulated
+2026-03-16,Mon,0,,6.0,Dry,Lecture,126,120,6,0,simulated
+2026-03-17,Tue,0,,1.8,Dry,Lecture,123,117,6,0,simulated
+2026-03-18,Wed,0,,3.6,Dry,Lecture,125,120,5,0,simulated
+2026-03-19,Thu,0,,3.3,Dry,Lecture,125,119,6,0,simulated
+2026-03-20,Fri,0,,6.1,Dry,Lecture,131,122,9,0,simulated
+2026-03-21,Sat,1,Hari Raya Aidilfitri,0.6,Dry,Lecture,129,62,67,0,simulated
+2026-03-22,Sun,1,Hari Raya Aidilfitri (2nd day),3.8,Dry,Lecture,118,58,60,0,simulated
+2026-03-23,Mon,1,Hari Raya Aidilfitri (replacement),1.4,Dry,Lecture,103,48,55,0,simulated
+2026-03-24,Tue,0,,2.0,Dry,Lecture,95,95,0,1,simulated
+2026-03-25,Wed,0,,0.1,Dry,Lecture,95,95,0,1,simulated
+2026-03-26,Thu,0,,0.3,Dry,Lecture,97,97,0,1,simulated
+2026-03-27,Fri,0,,7.0,Dry,Lecture,97,97,0,1,simulated
+2026-03-28,Sat,0,,2.9,Dry,Lecture,96,96,0,1,simulated
+2026-03-29,Sun,0,,4.7,Dry,Lecture,109,109,0,1,simulated
+2026-03-30,Mon,0,,7.5,Dry,Lecture,120,119,1,0,simulated
+2026-03-31,Tue,0,,5.5,Dry,Lecture,131,112,19,0,simulated
+2026-04-01,Wed,0,,9.8,Dry,Lecture,131,114,17,0,simulated
+2026-04-02,Thu,0,,1.0,Dry,Lecture,132,120,12,0,simulated
+2026-04-03,Fri,0,,1.0,Dry,Lecture,131,113,18,0,simulated
+2026-04-04,Sat,0,,7.5,Dry,Study break,128,128,0,1,simulated
+2026-04-05,Sun,0,,12.7,Rainy,Study break,130,119,11,0,simulated
+2026-04-06,Mon,0,,7.6,Dry,Study break,124,107,17,0,simulated
+2026-04-07,Tue,0,,13.0,Rainy,Exams,122,77,45,0,simulated
+2026-04-08,Wed,0,,11.7,Rainy,Exams,114,78,36,0,simulated
+2026-04-09,Thu,0,,8.6,Dry,Exams,112,89,23,0,simulated
+2026-04-10,Fri,0,,1.8,Dry,Exams,107,87,20,0,simulated
+2026-04-11,Sat,0,,6.4,Dry,Exams,102,102,0,1,simulated
+2026-04-12,Sun,0,,1.1,Dry,Exams,100,100,0,1,simulated
+2026-04-13,Mon,0,,11.2,Rainy,Exams,97,76,21,0,simulated
+2026-04-14,Tue,0,,12.5,Rainy,Exams,95,74,21,0,simulated
+2026-04-15,Wed,0,,6.7,Dry,Exams,90,83,7,0,simulated
+2026-04-16,Thu,0,,17.2,Rainy,Exams,95,80,15,0,simulated
+2026-04-17,Fri,0,,7.5,Dry,Exams,94,90,4,0,simulated
+2026-04-18,Sat,0,,7.2,Dry,Exams,92,92,0,1,simulated
+2026-04-19,Sun,0,,16.8,Rainy,Exams,91,90,1,0,simulated
+2026-04-20,Mon,0,,14.4,Rainy,Exams,89,77,12,0,simulated
+2026-04-21,Tue,0,,15.8,Rainy,Exams,91,77,14,0,simulated
+2026-04-22,Wed,0,,5.2,Dry,Break,90,61,29,0,simulated
+2026-04-23,Thu,0,,8.3,Dry,Break,88,53,35,0,simulated
+2026-04-24,Fri,0,,2.6,Dry,Break,82,58,24,0,simulated
+2026-04-25,Sat,0,,17.0,Rainy,Break,77,58,19,0,simulated
+2026-04-26,Sun,0,,1.5,Dry,Break,69,69,0,1,simulated
+2026-04-27,Mon,0,,1.2,Dry,Break,70,55,15,0,simulated
+2026-04-28,Tue,0,,0.3,Dry,Break,66,60,6,0,simulated
+2026-04-29,Wed,0,,10.9,Rainy,Break,61,55,6,0,simulated
+2026-04-30,Thu,0,,18.9,Rainy,Break,61,52,9,0,simulated
+2026-05-01,Fri,1,Labour Day,34.1,Rainy,Break,62,18,44,0,simulated
+2026-05-02,Sat,0,,7.0,Dry,Break,54,54,0,1,simulated
+2026-05-03,Sun,0,,15.0,Rainy,Break,56,56,0,1,simulated
+2026-05-04,Mon,0,,12.5,Rainy,Break,55,52,3,0,simulated
+2026-05-05,Tue,0,,3.1,Dry,Break,54,54,0,0,simulated
+2026-05-06,Wed,0,,18.5,Rainy,Break,52,48,4,0,simulated
+2026-05-07,Thu,0,,24.1,Rainy,Break,51,51,0,1,simulated
+2026-05-08,Fri,0,,20.1,Rainy,Break,54,53,1,0,simulated
+2026-05-09,Sat,0,,20.6,Rainy,Break,59,59,0,1,simulated
+2026-05-10,Sun,0,,15.7,Rainy,Break,56,56,0,1,simulated
+2026-05-11,Mon,0,,5.4,Dry,Lecture,58,58,0,1,simulated
+2026-05-12,Tue,0,,17.3,Rainy,Lecture,68,68,0,1,simulated
+2026-05-13,Wed,0,,7.6,Dry,Lecture,75,75,0,1,simulated
+2026-05-14,Thu,0,,12.4,Rainy,Lecture,85,85,0,1,simulated
+2026-05-15,Fri,0,,13.2,Rainy,Lecture,91,91,0,1,simulated
+2026-05-16,Sat,0,,14.3,Rainy,Lecture,100,100,0,1,simulated
+2026-05-17,Sun,0,,0.5,Dry,Lecture,105,105,0,1,simulated
+2026-05-18,Mon,0,,0.8,Dry,Lecture,121,118,3,0,simulated
+2026-05-19,Tue,0,,0.2,Dry,Lecture,121,114,7,0,simulated
+2026-05-20,Wed,0,,3.8,Dry,Lecture,120,120,0,1,simulated
+2026-05-21,Thu,0,,0.0,Dry,Lecture,121,118,3,0,simulated
+2026-05-22,Fri,0,,0.0,Dry,Lecture,125,114,11,0,simulated
+2026-05-23,Sat,0,,15.1,Rainy,Lecture,126,121,5,0,simulated
+2026-05-24,Sun,0,,4.0,Dry,Lecture,125,125,0,1,simulated
+2026-05-25,Mon,0,,1.6,Dry,Lecture,121,113,8,0,simulated
+2026-05-26,Tue,0,,0.8,Dry,Lecture,125,117,8,0,simulated
+2026-05-27,Wed,1,Hari Raya Haji,0.5,Dry,Lecture,121,42,79,0,simulated
+2026-05-28,Thu,0,,3.6,Dry,Lecture,112,112,0,1,simulated
+2026-05-29,Fri,0,,0.6,Dry,Lecture,113,113,0,1,simulated
+2026-05-30,Sat,0,,0.3,Dry,Lecture,113,113,0,1,simulated
+2026-05-31,Sun,1,Wesak Day,0.4,Dry,Lecture,117,60,57,0,simulated
+2026-06-01,Mon,1,Agong's Birthday,0.1,Dry,Lecture,102,44,58,0,simulated
+2026-06-02,Tue,0,,1.4,Dry,Lecture,92,92,0,1,simulated
+2026-06-03,Wed,0,,0.0,Dry,Lecture,94,94,0,1,simulated
+2026-06-04,Thu,0,,2.4,Dry,Lecture,104,104,0,1,simulated
+2026-06-05,Fri,0,,16.3,Rainy,Lecture,107,95,12,0,simulated
+2026-06-06,Sat,0,,0.7,Dry,Lecture,101,101,0,1,simulated
+2026-06-07,Sun,0,,2.1,Dry,Lecture,100,100,0,1,simulated
+2026-06-08,Mon,0,,4.2,Dry,Lecture,118,118,0,1,simulated
+2026-06-09,Tue,0,,3.0,Dry,Lecture,126,112,14,0,simulated
+2026-06-10,Wed,0,,3.8,Dry,Lecture,123,122,1,0,simulated
+2026-06-11,Thu,0,,3.4,Dry,Lecture,128,122,6,0,simulated
+2026-06-12,Fri,0,,3.8,Dry,Lecture,127,114,13,0,simulated
+2026-06-13,Sat,0,,2.3,Dry,Lecture,130,130,0,1,simulated
+2026-06-14,Sun,0,,13.4,Rainy,Lecture,132,126,6,0,simulated
+2026-06-15,Mon,0,,6.7,Dry,Lecture,124,114,10,0,simulated
+2026-06-16,Tue,0,,2.4,Dry,Lecture,125,114,11,0,simulated
+2026-06-17,Wed,1,Awal Muharram,8.1,Dry,Lecture,126,48,78,0,simulated
+2026-06-18,Thu,0,,1.4,Dry,Lecture,114,113,1,0,simulated
+2026-06-19,Fri,0,,14.6,Rainy,Lecture,113,96,17,0,simulated
+2026-06-20,Sat,0,,4.3,Dry,Lecture,111,111,0,1,simulated
+2026-06-21,Sun,0,,11.7,Rainy,Lecture,110,110,0,1,simulated
+2026-06-22,Mon,0,,1.6,Dry,Lecture,110,110,0,1,simulated
+2026-06-23,Tue,0,,3.5,Dry,Lecture,110,110,0,1,simulated
+2026-06-24,Wed,0,,19.7,Rainy,Lecture,113,102,11,0,simulated
+2026-06-25,Thu,0,,2.6,Dry,Lecture,122,116,6,0,simulated
+2026-06-26,Fri,0,,0.6,Dry,Lecture,118,115,3,0,simulated
+2026-06-27,Sat,0,,1.7,Dry,Lecture,125,125,0,1,simulated
+2026-06-28,Sun,0,,14.9,Rainy,Lecture,121,121,0,1,simulated
+2026-06-29,Mon,0,,14.9,Rainy,Lecture,125,102,23,0,simulated
+2026-06-30,Tue,0,,3.7,Dry,Lecture,119,119,0,1,simulated
+2026-07-01,Wed,0,,2.2,Dry,Lecture,120,112,8,0,simulated
+2026-07-02,Thu,0,,0.0,Dry,Lecture,122,114,8,0,simulated
+2026-07-03,Fri,0,,0.2,Dry,Lecture,123,122,1,0,simulated
+2026-07-04,Sat,0,,0.0,Dry,Lecture,122,122,0,1,simulated
+2026-07-05,Sun,0,,6.1,Dry,Lecture,126,126,0,1,simulated
+2026-07-06,Mon,0,,3.4,Dry,Lecture,130,120,10,0,simulated
+2026-07-07,Tue,0,,2.7,Dry,Lecture,131,115,16,0,simulated
+2026-07-08,Wed,0,,2.1,Dry,Lecture,128,121,7,0,simulated
+2026-07-09,Thu,0,,0.8,Dry,Lecture,128,120,8,0,simulated
+2026-07-10,Fri,0,,1.9,Dry,Lecture,129,116,13,0,simulated
+2026-07-11,Sat,0,,4.7,Dry,Lecture,128,128,0,1,simulated
+2026-07-12,Sun,0,,0.0,Dry,Lecture,127,127,0,1,simulated
+2026-07-13,Mon,0,,2.0,Dry,Lecture,132,117,15,0,simulated
+2026-07-14,Tue,0,,1.1,Dry,Lecture,131,114,17,0,simulated
+2026-07-15,Wed,0,,2.5,Dry,Lecture,130,113,17,0,simulated
+2026-07-16,Thu,0,,1.9,Dry,Lecture,130,116,14,0,simulated
+2026-07-17,Fri,0,,9.4,Dry,Lecture,127,113,14,0,simulated
+2026-07-18,Sat,0,,13.2,Rainy,Lecture,125,123,2,0,simulated
+2026-07-19,Sun,0,,7.5,Dry,Lecture,121,121,0,1,simulated
+2026-07-20,Mon,0,,10.8,Rainy,Lecture,126,100,26,0,simulated
+2026-07-21,Tue,0,,4.8,Dry,Lecture,120,116,4,0,simulated
+2026-07-22,Wed,0,,6.2,Dry,Lecture,118,112,6,0,simulated
+2026-07-23,Thu,0,,3.8,Dry,Lecture,118,115,3,0,simulated
+2026-07-24,Fri,0,,9.7,Dry,Lecture,118,113,5,0,simulated
+2026-07-25,Sat,0,,1.4,Dry,Lecture,122,122,0,1,simulated
+2026-07-26,Sun,0,,1.3,Dry,Lecture,123,123,0,1,simulated
+2026-07-27,Mon,0,,6.4,Dry,Lecture,126,119,7,0,simulated
+2026-07-28,Tue,0,,1.3,Dry,Lecture,129,122,7,0,simulated
+2026-07-29,Wed,0,,4.1,Dry,Lecture,132,112,20,0,simulated
+2026-07-30,Thu,0,,0.6,Dry,Lecture,129,117,12,0,simulated
+2026-07-31,Fri,0,,3.4,Dry,Lecture,129,121,8,0,simulated
+2026-08-01,Sat,0,,4.5,Dry,Study break,133,133,0,1,simulated
+2026-08-02,Sun,0,,0.8,Dry,Study break,128,128,0,1,simulated
+2026-08-03,Mon,0,,3.5,Dry,Study break,130,114,16,0,simulated
+2026-08-04,Tue,0,,3.7,Dry,Exams,127,87,40,0,simulated
+2026-08-05,Wed,0,,0.7,Dry,Exams,120,88,32,0,simulated
+2026-08-06,Thu,0,,0.1,Dry,Exams,122,89,33,0,simulated
+2026-08-07,Fri,0,,2.8,Dry,Exams,117,87,30,0,simulated
+2026-08-08,Sat,0,,0.9,Dry,Exams,112,108,4,0,simulated
+2026-08-09,Sun,0,,2.3,Dry,Exams,104,104,0,1,simulated
+2026-08-10,Mon,0,,3.5,Dry,Exams,99,89,10,0,simulated
+2026-08-11,Tue,0,,1.6,Dry,Exams,96,83,13,0,simulated
+2026-08-12,Wed,0,,0.2,Dry,Exams,94,88,6,0,simulated
+2026-08-13,Thu,0,,1.5,Dry,Exams,97,83,14,0,simulated
+2026-08-14,Fri,0,,10.5,Rainy,Exams,93,71,22,0,simulated
+2026-08-15,Sat,0,,0.1,Dry,Exams,90,90,0,1,simulated
+2026-08-16,Sun,0,,1.6,Dry,Exams,92,92,0,1,simulated
+2026-08-17,Mon,0,,5.2,Dry,Exams,93,92,1,0,simulated
+2026-08-18,Tue,0,,8.7,Dry,Exams,91,91,0,1,simulated
+2026-08-19,Wed,0,,1.9,Dry,Break,94,59,35,0,simulated
+2026-08-20,Thu,0,,0.0,Dry,Break,89,58,31,0,simulated
+2026-08-21,Fri,0,,0.3,Dry,Break,85,59,26,0,simulated
+2026-08-22,Sat,0,,0.0,Dry,Break,85,74,11,0,simulated
+2026-08-23,Sun,0,,0.0,Dry,Break,78,70,8,0,simulated
+2026-08-24,Mon,0,,0.1,Dry,Break,75,53,22,0,simulated
+2026-08-25,Tue,0,,5.4,Dry,Break,69,61,8,0,simulated
+2026-08-26,Wed,1,Prophet Muhammad's Birthday,2.2,Dry,Break,65,24,41,0,simulated
+2026-08-27,Thu,0,,2.5,Dry,Break,58,55,3,0,simulated
+2026-08-28,Fri,0,,0.2,Dry,Break,58,53,5,0,simulated
+2026-08-29,Sat,0,,9.0,Dry,Break,57,57,0,1,simulated
+2026-08-30,Sun,0,,0.1,Dry,Break,56,56,0,1,simulated
+2026-08-31,Mon,1,Merdeka Day,0.1,Dry,Break,58,28,30,0,simulated
+2026-09-01,Tue,0,,1.0,Dry,Break,54,54,0,1,simulated
+2026-09-02,Wed,0,,0.2,Dry,Break,55,55,0,1,simulated
+2026-09-03,Thu,0,,0.6,Dry,Break,60,60,0,1,simulated
+2026-09-04,Fri,0,,1.3,Dry,Break,60,58,2,0,simulated
+2026-09-05,Sat,0,,1.0,Dry,Break,59,59,0,1,simulated
+2026-09-06,Sun,0,,0.8,Dry,Break,61,61,0,1,simulated
+2026-09-07,Mon,0,,0.7,Dry,Lecture,60,60,0,1,simulated
+2026-09-08,Tue,0,,2.9,Dry,Lecture,73,73,0,1,simulated
+2026-09-09,Wed,0,,9.8,Dry,Lecture,83,83,0,1,simulated
+2026-09-10,Thu,0,,7.9,Dry,Lecture,90,90,0,1,simulated
+2026-09-11,Fri,0,,13.6,Rainy,Lecture,100,99,1,0,simulated
+2026-09-12,Sat,0,,1.5,Dry,Lecture,104,104,0,1,simulated
+2026-09-13,Sun,0,,4.5,Dry,Lecture,113,113,0,1,simulated
+2026-09-14,Mon,0,,0.8,Dry,Lecture,124,115,9,0,simulated
+2026-09-15,Tue,0,,0.8,Dry,Lecture,126,119,7,0,simulated
+2026-09-16,Wed,1,Malaysia Day,8.0,Dry,Lecture,128,50,78,0,simulated
+2026-09-17,Thu,0,,1.5,Dry,Lecture,116,116,0,1,simulated
+2026-09-18,Fri,0,,3.3,Dry,Lecture,114,114,0,1,simulated
+2026-09-19,Sat,0,,6.7,Dry,Lecture,116,116,0,1,simulated
+2026-09-20,Sun,0,,11.3,Rainy,Lecture,122,118,4,0,simulated
+2026-09-21,Mon,0,,1.0,Dry,Lecture,117,117,0,1,simulated
+2026-09-22,Tue,0,,22.0,Rainy,Lecture,117,94,23,0,simulated
+2026-09-23,Wed,0,,12.6,Rainy,Lecture,111,95,16,0,simulated
+2026-09-24,Thu,0,,10.2,Rainy,Lecture,121,102,19,0,simulated
+2026-09-25,Fri,0,,6.1,Dry,Lecture,118,114,4,0,simulated
+2026-09-26,Sat,0,,14.1,Rainy,Lecture,119,119,0,0,simulated
+2026-09-27,Sun,0,,1.9,Dry,Lecture,112,112,0,1,simulated
+2026-09-28,Mon,0,,0.5,Dry,Lecture,114,114,0,1,simulated
+2026-09-29,Tue,0,,2.7,Dry,Lecture,119,112,7,0,simulated
+2026-09-30,Wed,0,,36.6,Rainy,Lecture,118,100,18,0,simulated
+2026-10-01,Thu,0,,2.4,Dry,Lecture,121,120,1,0,simulated
+2026-10-02,Fri,0,,18.9,Rainy,Lecture,119,104,15,0,simulated
+2026-10-03,Sat,0,,11.1,Rainy,Lecture,117,117,0,1,simulated
+2026-10-04,Sun,0,,6.3,Dry,Lecture,123,123,0,1,simulated
+2026-10-05,Mon,0,,7.0,Dry,Lecture,122,117,5,0,simulated
+2026-10-06,Tue,0,,15.0,Rainy,Lecture,118,98,20,0,simulated
+2026-10-07,Wed,0,,1.7,Dry,Lecture,120,120,0,1,simulated
+2026-10-08,Thu,0,,2.0,Dry,Lecture,119,115,4,0,simulated
+2026-10-09,Fri,0,,1.2,Dry,Lecture,120,116,4,0,simulated
+2026-10-10,Sat,0,,27.2,Rainy,Lecture,122,122,0,0,simulated
+2026-10-11,Sun,0,,18.2,Rainy,Lecture,120,120,0,1,simulated
+2026-10-12,Mon,0,,19.3,Rainy,Lecture,116,104,12,0,simulated
+2026-10-13,Tue,0,,6.4,Dry,Lecture,119,119,0,1,simulated
+2026-10-14,Wed,0,,2.4,Dry,Lecture,120,118,2,0,simulated
+2026-10-15,Thu,0,,6.2,Dry,Lecture,118,118,0,1,simulated
+2026-10-16,Fri,0,,5.3,Dry,Lecture,118,118,0,1,simulated
+2026-10-17,Sat,0,,25.3,Rainy,Lecture,122,122,0,1,simulated
+2026-10-18,Sun,0,,11.9,Rainy,Lecture,119,119,0,1,simulated
+2026-10-19,Mon,0,,1.4,Dry,Lecture,122,113,9,0,simulated
+2026-10-20,Tue,0,,17.4,Rainy,Lecture,125,104,21,0,simulated
+2026-10-21,Wed,0,,17.8,Rainy,Lecture,117,99,18,0,simulated
+2026-10-22,Thu,0,,7.0,Dry,Lecture,116,116,0,0,simulated
+2026-10-23,Fri,0,,21.4,Rainy,Lecture,118,96,22,0,simulated
+2026-10-24,Sat,0,,14.1,Rainy,Lecture,111,111,0,1,simulated
+2026-10-25,Sun,0,,30.9,Rainy,Lecture,113,113,0,1,simulated
+2026-10-26,Mon,0,,12.3,Rainy,Lecture,113,95,18,0,simulated
+2026-10-27,Tue,0,,21.7,Rainy,Lecture,110,103,7,0,simulated
+2026-10-28,Wed,0,,8.5,Dry,Lecture,110,110,0,1,simulated
+2026-10-29,Thu,0,,33.0,Rainy,Lecture,110,101,9,0,simulated
+2026-10-30,Fri,0,,1.0,Dry,Lecture,109,109,0,1,simulated
+2026-10-31,Sat,0,,8.2,Dry,Lecture,115,115,0,1,simulated
+2026-11-01,Sun,0,,4.3,Dry,Lecture,121,121,0,1,simulated
+2026-11-02,Mon,0,,15.1,Rainy,Lecture,118,99,19,0,simulated
+2026-11-03,Tue,0,,22.5,Rainy,Lecture,124,95,29,0,simulated
+2026-11-04,Wed,0,,18.9,Rainy,Lecture,119,98,21,0,simulated
+2026-11-05,Thu,0,,21.0,Rainy,Lecture,117,104,13,0,simulated
+2026-11-06,Fri,1,Sultan of Perak's Birthday,6.8,Dry,Lecture,118,47,71,0,simulated
+2026-11-07,Sat,0,,3.4,Dry,Lecture,107,107,0,1,simulated
+2026-11-08,Sun,1,Deepavali,25.6,Rainy,Lecture,111,54,57,0,simulated
+2026-11-09,Mon,1,Deepavali (replacement),11.2,Rainy,Lecture,94,41,53,0,simulated
+2026-11-10,Tue,0,,15.5,Rainy,Lecture,88,88,0,1,simulated
+2026-11-11,Wed,0,,22.9,Rainy,Lecture,89,89,0,1,simulated
+2026-11-12,Thu,0,,11.5,Rainy,Lecture,88,88,0,1,simulated
+2026-11-13,Fri,0,,24.2,Rainy,Lecture,85,85,0,1,simulated
+2026-11-14,Sat,0,,16.4,Rainy,Lecture,93,93,0,1,simulated
+2026-11-15,Sun,0,,34.4,Rainy,Lecture,90,90,0,1,simulated
+2026-11-16,Mon,0,,15.7,Rainy,Lecture,101,101,0,1,simulated
+2026-11-17,Tue,0,,35.6,Rainy,Lecture,109,96,13,0,simulated
+2026-11-18,Wed,0,,30.6,Rainy,Lecture,111,99,12,0,simulated
+2026-11-19,Thu,0,,24.8,Rainy,Lecture,108,99,9,0,simulated
+2026-11-20,Fri,0,,13.9,Rainy,Lecture,108,101,7,0,simulated
+2026-11-21,Sat,0,,9.3,Dry,Lecture,110,110,0,1,simulated

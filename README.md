@@ -16,7 +16,7 @@ Open `index.html` in any browser. Nothing needs to be installed.
 | `app.js` | The AI model, the rules and the screen logic, with comments |
 | `data/sales.csv` | The dataset, one row per day (open it in Excel) |
 | `data/sales.js` | The same data, in a form the page can load |
-| `data/calendar.json` | Public holidays and UTP/UiTM term dates |
+| `data/calendar.json` | Public holidays and UTP term dates |
 | `data/rain_raw.json` | Real daily rainfall for Seri Iskandar from Open-Meteo |
 | `data/generate.py` | Builds the dataset (run `python3 data/generate.py`) |
 
@@ -26,8 +26,6 @@ Open `index.html` in any browser. Nothing needs to be installed.
 | Dates, day of week | Real |
 | Rainfall, 1 Mar to 21 Nov 2026 | **Real**: Open-Meteo archive, lat 4.3594, lon 100.9653. A day with 10 mm or more counts as rainy. |
 | Public holidays | Real, compiled from public Perak 2026 listings. **Check these against the official gazette.** |
-| UiTM lecture, exam and break dates | **Real**: official UiTM Group B calendar 2025/2026 and 2026/2027 (hea.uitm.edu.my) |
-| KPM lecture, exam and break dates | **Real**: official Kolej Profesional MARA academic calendar 2025/2026 and 2026/2027 (Diploma, Seri Iskandar), BPT MARA. KPM effects are estimates: 9.3% of respondents study at KPM, so semester break ×0.95, exam week ×0.98, study break ×0.99. |
 | UTP lecture, exam and break dates | **Real key dates** from the UTP Academic Calendar 2026. The other week boundaries follow UTP's official 12-week pattern (Academic Calendar 2027). If you have the 2026 PDF, check `data/calendar.json` against it. |
 | Effect sizes | **Real**: the group's IF-THEN rules (*AI_-_AI_Workflow_and_Portion_Prediction.xlsx*), based on the student survey (n = 40, 77% UTP students): weekend (Sat, Sun) ×1.24, rain ×0.85 (survey 0.83, rounded; vendor 10–20% fewer), exam week ×0.75, study break ×0.95. Semester break ×0.50 (assumption, as in the report Section 3.0; the vendor later said about 40% fewer). Public holiday ×0.40 is the group's assumption. The vendor's rough sales for 7 days (Mon 118 … Sun 136) are used as a cross-check. |
 | Recipe per plate | **Real**: vendor interview, 1 chicken piece, 225 g rice, about 28 g sambal |
@@ -37,11 +35,10 @@ The History tab's results show how the method would be evaluated. **They are not
 
 ## How the AI works (for the report and presentation)
 1. **Machine learning: linear regression** (the `train()` function in `app.js`)
-   - The model learns: *portions = base × Friday × Saturday × Sunday × rain × holiday × UTP status × UiTM status*.
+   - The model learns: *portions = base × Friday × Saturday × Sunday × rain × holiday × UTP status*.
    - Each factor's multiplier is found by least squares on log(portions), meaning the numbers that best fit past sales. Nobody types these numbers in.
    - The model is **log-linear**: it learns a multiplier for each factor, the same form as the group's IF-THEN rules.
    - It is **hybrid**: each factor *starts* from the group's study value (survey, vendor interview, or estimate) and moves towards what the shop's data shows. The study counts as 14 days of evidence (`STUDY_DAYS` in `app.js`). With little data the study decides; as the crew logs more days, the data takes over. The Data tab shows, for every factor, the study value, what the data alone says, the value used now, and how much weight the study still has.
-   - UiTM effects are **estimates**: 12% of respondents study at UiTM, so a UiTM period is assumed to change total demand by 12% × the change seen for UTP students (semester break ×0.95, exam week ×0.97, study break ×0.99).
    - **Sold-out correction:** on a sold-out day, sales are lower than real demand, so the model counts those days as 12% more than was sold.
 2. **Testing**
    - The model learns from the first 70% of days and is tested on the last 30%, which it never saw.
@@ -64,7 +61,7 @@ Rain, holidays and campus breaks are learned by the model, not added again as fi
 In the Data tab, use **Upload sales CSV**.
 
 The file needs these columns, the same as `data/sales.csv`:
-`date, holiday, rain_mm, weather, utp_status, uitm_status, owner_planned, portions_sold, leftover_portions, sold_out`
+`date, holiday, rain_mm, weather, utp_status, owner_planned, portions_sold, leftover_portions, sold_out`
 
 ## Limitations
 - The app can't know about events, a new menu item, competitors or supply problems unless the owner types a note.
