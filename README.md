@@ -7,7 +7,7 @@ This version starts like the original prototype, with **one dish** (Nasi Ayam Ge
 ## How to run
 Open `index.html` in any browser. Nothing needs to be installed.
 - The chart needs internet to load Chart.js. Everything else works offline.
-- The live weather forecast (Open-Meteo) loads when it can. If it can't, the app assumes dry weather and the owner can change it.
+- The Weather condition uses the live Open-Meteo forecast for Seri Iskandar (16 days ahead and the last 7 days; 10 mm or more = rainy). Dates without a forecast use the report's simulated weather. The model itself still learns from the report's 30 days.
 
 ## Files
 | File | What it is |
