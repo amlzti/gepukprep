@@ -4,7 +4,7 @@ GepukPrep AI - dataset builder.
 What is REAL in the output:
   - date, day of week
   - public holidays (calendar.json, from public Perak 2026 listings)
-  - UTP / UiTM status (calendar.json - approximate, group to confirm)
+  - UTP / UiTM / KPM status (calendar.json - approximate, group to confirm)
   - rain_mm: real daily rainfall for Seri Iskandar from the Open-Meteo
     historical archive (saved in rain_raw.json)
 
@@ -43,6 +43,8 @@ HOLIDAY = 0.40                       # Rule 6: ASSUMPTION, not in survey; vendor
 # UiTM: ESTIMATE. 12% of respondents study at UiTM, so a UiTM period changes total demand by
 # about 12% x (the same change seen for UTP students): break 1-0.12x0.50, exams 1-0.12x0.25.
 UITM_PERIOD = {"Lecture": 1.00, "Study break": 0.99, "Exams": 0.97, "Break": 0.94}
+# KPM (Kolej Profesional MARA) Seri Iskandar: ESTIMATE, same method. 4 of 43 respondents (9.3%).
+KPM_PERIOD = {"Lecture": 1.00, "Study break": 0.99, "Exams": 0.98, "Break": 0.95}
 # Owner: decides early morning "based on previous day's sales", leaves ~0 unsold portions
 # and turns away 1-5 customers when chicken runs out. So: plan = recent days' customers + a little.
 OWNER_EXTRA = (0.00, 0.06)          # a little extra on top of the recent average
@@ -95,9 +97,9 @@ def main():
         hol = cal["holidays"].get(iso, "")
         rain_mm = round(rain.get(iso) or 0.0, 1)
         rainy = rain_mm >= RAIN_THRESHOLD_MM
-        utp, uitm = status_on(cal["utp"], d), status_on(cal["uitm"], d)
+        utp, uitm, kpm = status_on(cal["utp"], d), status_on(cal["uitm"], d), status_on(cal["kpm"], d)
 
-        mult = DAY.get(dow, 1.0) * PERIOD[utp] * UITM_PERIOD[uitm] * (RAIN if rainy else 1.0) * (HOLIDAY if hol else 1.0)
+        mult = DAY.get(dow, 1.0) * PERIOD[utp] * UITM_PERIOD[uitm] * KPM_PERIOD[kpm] * (RAIN if rainy else 1.0) * (HOLIDAY if hol else 1.0)
         demand = max(15, round(BASELINE_WEEKDAY * mult) + rng.randint(-NOISE, NOISE))
 
         # Owner's manual estimate: yesterday's sales plus a little (vendor interview)
@@ -113,7 +115,7 @@ def main():
         rows.append({
             "date": iso, "dow": d.strftime("%a"), "holiday": int(bool(hol)),
             "holiday_name": hol, "rain_mm": rain_mm, "weather": "Rainy" if rainy else "Dry",
-            "utp_status": utp, "uitm_status": uitm,
+            "utp_status": utp, "uitm_status": uitm, "kpm_status": kpm,
             "owner_planned": owner_planned, "portions_sold": sold,
             "leftover_portions": owner_planned - sold,
             "sold_out": int(demand > owner_planned), "source": "simulated",

@@ -1,5 +1,5 @@
 {
- "_note": "Public holidays: compiled from public Perak 2026 listings (officeholidays.com, holidaydb.com, says.com); verify against the official gazette. UiTM: OFFICIAL Group B calendar (Pre-Diploma, Diploma, Bachelor) from hea.uitm.edu.my/index.php/calendars/academic-calendar, sessions 2025/2026 and 2026/2027; Session III (Aug-Sep 2026) is a small short semester, treated as break. Revision week and 1-week mid-semester/special breaks = Study break (no classes, students still around); finals = Exams; long semester breaks = Break. UTP: CONFIRMED anchors from the UTP Academic Calendar 2026 (lectures start 12 Jan; May semester registration 4 May and lectures end Fri 31 Jul; Sept semester registration 1 Sep) and the group's copy of the calendar (semester break 16 Dec 2026 - 3 Jan 2027). Other boundaries are DERIVED from UTP's official pattern in the Academic Calendar 2027 (12 lecture weeks, 3-day study break, 11-day exam). Status names follow the group's survey: Lecture, Study break, Exams (exam week), Break (semester break). Orientation/registration weeks count as Break. The 2026 PDF was removed when UTP moved its website; replace with exact dates if the group has the file. Sept 2026 semester study break (28 Nov - 2 Dec) and finals (3 - 15 Dec) follow the report, Section 3.0.",
+ "_note": "Public holidays: compiled from public Perak 2026 listings (officeholidays.com, holidaydb.com, says.com); verify against the official gazette. UiTM: OFFICIAL Group B calendar (Pre-Diploma, Diploma, Bachelor) from hea.uitm.edu.my/index.php/calendars/academic-calendar, sessions 2025/2026 and 2026/2027; Session III (Aug-Sep 2026) is a small short semester, treated as break. Revision week and 1-week mid-semester/special breaks = Study break (no classes, students still around); finals = Exams; long semester breaks = Break. UTP: CONFIRMED anchors from the UTP Academic Calendar 2026 (lectures start 12 Jan; May semester registration 4 May and lectures end Fri 31 Jul; Sept semester registration 1 Sep) and the group's copy of the calendar (semester break 16 Dec 2026 - 3 Jan 2027). Other boundaries are DERIVED from UTP's official pattern in the Academic Calendar 2027 (12 lecture weeks, 3-day study break, 11-day exam). Status names follow the group's survey: Lecture, Study break, Exams (exam week), Break (semester break). Orientation/registration weeks count as Break. The 2026 PDF was removed when UTP moved its website; replace with exact dates if the group has the file. Sept 2026 semester study break (28 Nov - 2 Dec) and finals (3 - 15 Dec) follow the report, Section 3.0. KPM (Kolej Profesional MARA) Seri Iskandar: official BPT academic calendar 2025/2026 and 2026/2027 (Diploma). Revision days and mid-semester breaks = Study break; final exams = Exams; semester holiday and registration = Break.",
  "holidays": {
   "2026-01-01": "New Year's Day",
   "2026-02-01": "Thaipusam",
@@ -180,6 +180,129 @@
  "_sources": {
   "uitm": "https://hea.uitm.edu.my/index.php/calendars/academic-calendar",
   "uitm_pdf": "https://penang.uitm.edu.my/images/hea/KALENDARAKADEMIK/Group_B_-_Summary_Schedule_Session_2025_2026.pdf",
-  "utp_2027_pattern": "https://www.utp.edu.my/wp-content/uploads/2026/11/UTP-Academic-Calendar-2027.pdf"
- }
+  "utp_2027_pattern": "https://www.utp.edu.my/wp-content/uploads/2026/11/UTP-Academic-Calendar-2027.pdf",
+  "kpm": "TAKWIM-KALENDAR-PROGRAM-BPT-2026-2027.xlsx (Bahagian Pendidikan Tinggi MARA)"
+ },
+ "kpm": [
+  [
+   "2026-01-01",
+   "2026-01-11",
+   "Lecture"
+  ],
+  [
+   "2026-01-12",
+   "2026-01-18",
+   "Study break"
+  ],
+  [
+   "2026-01-19",
+   "2026-02-27",
+   "Lecture"
+  ],
+  [
+   "2026-02-28",
+   "2026-03-04",
+   "Study break"
+  ],
+  [
+   "2026-03-05",
+   "2026-03-17",
+   "Exams"
+  ],
+  [
+   "2026-03-18",
+   "2026-03-29",
+   "Break"
+  ],
+  [
+   "2026-03-30",
+   "2026-05-24",
+   "Lecture"
+  ],
+  [
+   "2026-05-25",
+   "2026-05-31",
+   "Study break"
+  ],
+  [
+   "2026-06-01",
+   "2026-06-26",
+   "Lecture"
+  ],
+  [
+   "2026-06-27",
+   "2026-07-01",
+   "Study break"
+  ],
+  [
+   "2026-07-02",
+   "2026-07-15",
+   "Exams"
+  ],
+  [
+   "2026-07-16",
+   "2026-08-02",
+   "Break"
+  ],
+  [
+   "2026-08-03",
+   "2026-09-13",
+   "Lecture"
+  ],
+  [
+   "2026-09-14",
+   "2026-09-20",
+   "Study break"
+  ],
+  [
+   "2026-09-21",
+   "2026-10-30",
+   "Lecture"
+  ],
+  [
+   "2026-10-31",
+   "2026-11-04",
+   "Study break"
+  ],
+  [
+   "2026-11-05",
+   "2026-11-19",
+   "Exams"
+  ],
+  [
+   "2026-11-20",
+   "2026-12-06",
+   "Break"
+  ],
+  [
+   "2026-12-07",
+   "2027-01-17",
+   "Lecture"
+  ],
+  [
+   "2027-01-18",
+   "2027-01-24",
+   "Study break"
+  ],
+  [
+   "2027-01-25",
+   "2027-03-05",
+   "Lecture"
+  ],
+  [
+   "2027-03-06",
+   "2027-03-14",
+   "Study break"
+  ],
+  [
+   "2027-03-15",
+   "2027-03-28",
+   "Exams"
+  ],
+  [
+   "2027-03-29",
+   "2027-04-10",
+   "Break"
+  ]
+ ]
 }

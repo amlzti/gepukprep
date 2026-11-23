@@ -1,7 +1,7 @@
 /* GepukPrep AI - prototype logic.
  *
  * 1. MODEL  - linear regression trained in the browser (least squares).
- *             portions = base + Fri + Sat + Sun + rain + holiday + UTP status + UiTM status
+ *             portions = base + Fri + Sat + Sun + rain + holiday + UTP + UiTM + KPM status
  * 2. RULES  - IF-THEN adjustments for what the model cannot know
  *             (owner's event note, low data, kitchen capacity, safety buffer).
  * 3. OUTPUT - expected range, portions to prepare, ingredients, "why this number".
@@ -83,7 +83,7 @@
     return src.map((r) => ({
       date: r.date, holiday: +r.holiday, holiday_name: r.holiday_name || "",
       rain_mm: +r.rain_mm, weather: r.weather || (+r.rain_mm >= RAIN_MM ? "Rainy" : "Dry"),
-      utp_status: r.utp_status, uitm_status: r.uitm_status,
+      utp_status: r.utp_status, uitm_status: r.uitm_status, kpm_status: r.kpm_status || statusOn(CAL.kpm, r.date),
       owner_planned: +r.owner_planned, portions_sold: +r.portions_sold,
       leftover_portions: +r.leftover_portions, sold_out: +r.sold_out, source: r.source || "real",
     }));
@@ -96,7 +96,7 @@
       const c = conditionsFor(l.date, true);
       rows.push({
         date: l.date, holiday: c.holiday ? 1 : 0, holiday_name: c.holidayName, rain_mm: null,
-        weather: l.weather, utp_status: c.utp, uitm_status: c.uitm,
+        weather: l.weather, utp_status: c.utp, uitm_status: c.uitm, kpm_status: c.kpm,
         owner_planned: l.planned || null, portions_sold: l.sold,
         leftover_portions: null, sold_out: l.soldOut ? 1 : 0, source: "logged",
       });
@@ -117,17 +117,23 @@
     { key: "uitmSt", label: "UiTM study break", test: (r) => r.uitm_status === "Study break" },
     { key: "uitmEx", label: "UiTM exam weeks", test: (r) => r.uitm_status === "Exams" },
     { key: "uitmBr", label: "UiTM semester break", test: (r) => r.uitm_status === "Break" },
+    { key: "kpmSt", label: "KPM study break", test: (r) => r.kpm_status === "Study break" },
+    { key: "kpmEx", label: "KPM exam weeks", test: (r) => r.kpm_status === "Exams" },
+    { key: "kpmBr", label: "KPM semester break", test: (r) => r.kpm_status === "Break" },
   ];
   // What the group's own study said for each factor (Excel: AI-Gepuk_AI_Survey_Data_Analysis).
   const SURVEY = { fri: "weekday rule", sat: "weekend rule", sun: "weekend rule", rain: "survey", hol: "assumption",
-    utpSt: "survey", utpEx: "survey", utpBr: "assumption", uitmSt: "estimate", uitmEx: "estimate", uitmBr: "estimate" };
+    utpSt: "survey", utpEx: "survey", utpBr: "assumption", uitmSt: "estimate", uitmEx: "estimate", uitmBr: "estimate",
+    kpmSt: "estimate", kpmEx: "estimate", kpmBr: "estimate" };
   // HYBRID: the group's study gives each factor a STARTING value. The model starts from it and
   // moves towards what the shop's own data shows. The study counts as STUDY_DAYS days of evidence,
   // so with few data days the study decides; with many, the data decides.
   // UiTM values are estimates: 12% of respondents x the change seen for UTP students.
   // Values from the group's IF-THEN rules (report Section 3.0 / 4.4). Friday counts as a weekday.
   const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, hol: 0.40, utpSt: 0.95, utpEx: 0.75, utpBr: 0.50,
-    uitmSt: 0.99, uitmEx: 0.97, uitmBr: 0.94 };
+    uitmSt: 0.99, uitmEx: 0.97, uitmBr: 0.94,
+    // KPM Seri Iskandar: 9.3% of respondents x the change seen for UTP students (estimate).
+    kpmSt: 0.99, kpmEx: 0.98, kpmBr: 0.95 };
   const STUDY_DAYS = 14;
   const xOf = (r) => [1].concat(FEATURES.map((f) => (f.test(r) ? 1 : 0)));
 
@@ -182,7 +188,7 @@
   }
 
   // ---------- Conditions for a date ----------
-  let overrides = {};          // {date: {weather, holiday, utp, uitm}}
+  let overrides = {};          // {date: {weather, holiday, utp, uitm, kpm}}
   let forecast = {};           // {date: rain_mm} from Open-Meteo (live, optional)
   function conditionsFor(s, ignoreOverride) {
     const known = (rows || []).find((r) => r.date === s);
@@ -198,7 +204,7 @@
     }
     const c = {
       weather, weatherSrc, holiday: !!holName, holidayName: holName,
-      utp: statusOn(CAL.utp, s), uitm: statusOn(CAL.uitm, s), edited: {},
+      utp: statusOn(CAL.utp, s), uitm: statusOn(CAL.uitm, s), kpm: statusOn(CAL.kpm, s), edited: {},
     };
     const o = ignoreOverride ? null : overrides[s];
     if (o) for (const k in o) { if (c[k] !== o[k]) { c[k] = o[k]; c.edited[k] = true; } }
@@ -208,10 +214,10 @@
   // ---------- 2. RULES + 3. OUTPUT ----------
   function recommend(s, note) {
     const c = conditionsFor(s);
-    const r = { date: s, weather: c.weather, holiday: c.holiday ? 1 : 0, utp_status: c.utp, uitm_status: c.uitm };
+    const r = { date: s, weather: c.weather, holiday: c.holiday ? 1 : 0, utp_status: c.utp, uitm_status: c.uitm, kpm_status: c.kpm };
     const m = fullModel, x = xOf(r);
     let run = mult(m.w[0]);
-    const lines = [{ label: "Typical Mon–Thu day", sub: "dry, no holiday, both campuses in lectures", v: Math.round(run), kind: "base" }];
+    const lines = [{ label: "Typical Mon–Thu day", sub: "dry, no holiday, all campuses in lectures", v: Math.round(run), kind: "base" }];
     FEATURES.forEach((f, i) => {
       if (!x[i + 1]) return;
       const before = Math.round(run); run *= mult(m.w[i + 1]);
@@ -368,6 +374,7 @@
       ["holiday", "Public holiday", c.holiday ? "Yes" : "No", c.holiday ? c.holidayName : "Perak holiday calendar", ["No", "Yes"]],
       ["utp", "UTP", c.utp, "UTP academic calendar", ["Lecture", "Study break", "Exams", "Break"]],
       ["uitm", "UiTM", c.uitm, "UiTM calendar, Group B", ["Lecture", "Study break", "Exams", "Break"]],
+      ["kpm", "KPM", c.kpm, "KPM Seri Iskandar calendar (BPT MARA)", ["Lecture", "Study break", "Exams", "Break"]],
     ];
     $("cond").innerHTML = cond.map(([k, name, val, src, opts]) =>
       '<div class="cond-row"><div class="cond-head"><span class="cond-name">' + name + "</span>" +
