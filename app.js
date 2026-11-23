@@ -177,24 +177,26 @@
 
   // ---------- Conditions for a date ----------
   let overrides = {};          // {date: {weather, holiday, utp}}
-  let forecast = {};           // {date: rain_mm} from Open-Meteo (live, optional)
+  let forecast = {};           // {date: rain_mm} from Open-Meteo (live)
+  let forecastLoaded = false, forecastFailed = false;
   function conditionsFor(s, ignoreOverride) {
     const known = (rows || []).find((r) => r.date === s);
     const holName = CAL.holidays[s] || "";
     // Weather for the day being planned: the open-source forecast comes first.
-    // The report's simulated weather is only used when no forecast exists for that date.
-    let weather = "Dry", weatherSrc = "No forecast available, assumed dry";
+    // The report's simulated weather is NOT used here; it is only training data for the model.
+    let weather = "Dry", weatherSrc = "";
     if (forecast[s] != null) {
       weather = forecast[s] >= RAIN_MM ? "Rainy" : "Dry";
       weatherSrc = (s < todayISO ? "Open-Meteo, recent day: " : "Open-Meteo forecast: ") + forecast[s] + " mm";
     } else if (SAVED_FC && SAVED_FC.days[s] != null) {
       weather = SAVED_FC.days[s] >= RAIN_MM ? "Rainy" : "Dry";
       weatherSrc = "Open-Meteo forecast " + SAVED_FC.days[s] + " mm (saved " + SAVED_FC.fetched_on + ")";
-    } else if (known && known.rain_mm != null) {
-      weather = known.weather; weatherSrc = "Recorded " + known.rain_mm + " mm (Open-Meteo archive)";
-    } else if (known) {
-      weather = known.weather;
-      weatherSrc = /^simulated/.test(known.source || "") ? "No forecast for this date: report's simulated weather" : "Logged by the crew";
+    } else if (forecastFailed) {
+      weatherSrc = "Forecast could not load (offline?). Tap Rainy if rain is expected";
+    } else if (forecastLoaded) {
+      weatherSrc = "No Open-Meteo forecast this far ahead yet. Tap Rainy if rain is expected";
+    } else {
+      weatherSrc = "Loading Open-Meteo forecast…";
     }
     const c = {
       weather, weatherSrc, holiday: !!holName, holidayName: holName,
@@ -587,12 +589,12 @@
 
   // ---------- Live forecast (optional; silently skipped when blocked/offline) ----------
   function loadForecast() {
-    if (!window.fetch) return;
+    if (!window.fetch) { forecastFailed = true; return; }
     fetch("https://api.open-meteo.com/v1/forecast?latitude=4.3594&longitude=100.9653&daily=precipitation_sum&timezone=Asia%2FKuala_Lumpur&past_days=7&forecast_days=16")
       .then((r) => r.json()).then((j) => {
         j.daily.time.forEach((t, i) => (forecast[t] = j.daily.precipitation_sum[i]));
-        renderToday();
-      }).catch(() => { /* app works without it */ });
+        forecastLoaded = true; renderToday();
+      }).catch(() => { forecastFailed = true; renderToday(); });
   }
 
   // ---------- Wire up ----------

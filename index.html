@@ -459,7 +459,7 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
         <li>Starting values <span class="tag tag-real">Report</span> Section 3.4: normal weekday 117 portions, weekend ×1.24, rain ×0.85, study break ×0.95, exam week ×0.75, semester break ×0.40</li>
         <li>Recipe <span class="tag tag-real">Report</span> Table 2: 1 chicken piece, 225 g rice (201-250 g), 28 g sambal (25-30 g) per plate</li>
         <li>Daily sales <span class="tag tag-sim">Simulated</span> the report's 30-day table (21 Nov - 20 Dec 2026), rainy days as chosen in the report. Semester-break rows use ×0.40 as stated in the report.</li>
-        <li>Weather for the day you plan <span class="tag tag-real">Real</span> Open-Meteo forecast for Seri Iskandar (up to 16 days ahead, plus the last 7 days). 10 mm or more = rainy. Dates with no forecast use the report's simulated weather.</li>
+        <li>Weather for the day you plan <span class="tag tag-real">Real</span> Open-Meteo forecast for Seri Iskandar (up to 16 days ahead, plus the last 7 days). 10 mm or more = rainy. Dates with no forecast yet are left as dry for the owner to change.</li>
         <li>Days saved in Tutup kedai <span class="tag tag-real">Real</span> entered by the crew</li>
       </ul>
       <div class="actions" style="margin-top:14px">
@@ -506,9 +506,9 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="data/sales.js"></script>
-<script src="icons.js"></script>
-<script src="app.js"></script>
+<script src="data/sales.js?v=7"></script>
+<script src="icons.js?v=7"></script>
+<script src="app.js?v=7"></script>
 <!--ARTIFACT-END-->
 </body>
 </html>
