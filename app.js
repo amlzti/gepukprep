@@ -119,13 +119,14 @@
     { key: "uitmBr", label: "UiTM semester break", test: (r) => r.uitm_status === "Break" },
   ];
   // What the group's own study said for each factor (Excel: AI-Gepuk_AI_Survey_Data_Analysis).
-  const SURVEY = { fri: "vendor sales", sat: "vendor sales", sun: "vendor sales", rain: "survey", hol: "assumption",
+  const SURVEY = { fri: "weekday rule", sat: "weekend rule", sun: "weekend rule", rain: "survey", hol: "assumption",
     utpSt: "survey", utpEx: "survey", utpBr: "vendor", uitmSt: "estimate", uitmEx: "estimate", uitmBr: "estimate" };
   // HYBRID: the group's study gives each factor a STARTING value. The model starts from it and
   // moves towards what the shop's own data shows. The study counts as STUDY_DAYS days of evidence,
   // so with few data days the study decides; with many, the data decides.
   // UiTM values are estimates: 12% of respondents x the change seen for UTP students.
-  const STUDY = { fri: 1.10, sat: 1.17, sun: 1.12, rain: 0.83, hol: 0.40, utpSt: 0.956, utpEx: 0.75, utpBr: 0.60,
+  // Values from the group's IF-THEN rules (report Section 3.0 / 4.4). Friday counts as a weekday.
+  const STUDY = { fri: 1.00, sat: 1.24, sun: 1.24, rain: 0.85, hol: 0.40, utpSt: 0.95, utpEx: 0.75, utpBr: 0.60,
     uitmSt: 0.99, uitmEx: 0.97, uitmBr: 0.95 };
   const STUDY_DAYS = 14;
   const xOf = (r) => [1].concat(FEATURES.map((f) => (f.test(r) ? 1 : 0)));
@@ -222,7 +223,8 @@
     // R1 low data: how many past days look exactly like this one?
     const similar = rows.filter((p) => xOf(p).every((v, i) => v === x[i])).length;
     const lowData = settings.rules.lowData && similar < 3;
-    const spread = Math.max(4, Math.round(rmse * (lowData ? 1.6 : 1)));
+    // Range: the group's +/-10% of the prediction, or the test error if that is larger.
+    const spread = Math.max(4, Math.round(Math.max(rmse, total * 0.10) * (lowData ? 1.6 : 1)));
 
     // R2 owner's note (capped at ±25%)
     if (settings.rules.note && note && note.pct) {
@@ -408,9 +410,10 @@
   }
 
   const SCENARIOS = {
-    normal: { date: "2026-10-21", o: { weather: "Dry" }, note: null, label: "Normal weekday, both campuses in lectures" },
-    rainy: { date: "2026-10-24", o: { weather: "Rainy" }, note: null, label: "Rainy Saturday" },
-    holbreak: { date: "2026-08-31", o: {}, note: null, label: "Merdeka Day while both campuses are on break" },
+    weekend: { date: "2026-10-17", o: { weather: "Dry" }, note: null, label: "Sunny weekend during lectures" },
+    rainwk: { date: "2026-10-21", o: { weather: "Rainy" }, note: null, label: "Rainy weekday during lectures" },
+    sembreak: { date: "2026-08-25", o: { weather: "Dry" }, note: null, label: "Weekday in the semester break" },
+    holiday: { date: "2026-11-06", o: { weather: "Dry" }, note: null, label: "Public holiday (Sultan of Perak's Birthday)" },
     event: { date: "2026-11-28", o: { weather: "Dry" }, note: { text: "UTP convocation", pct: 25 }, label: "Big campus event the data can't know about" },
   };
 
@@ -494,7 +497,7 @@
   function renderData() {
     const m = fullModel;
     $("d-coef").innerHTML =
-      "<tr><td>Typical Mon–Thu day</td><td>121 portions <span class=\"muted\">vendor</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td><td>" + m.n + "</td></tr>" +
+      "<tr><td>Typical Mon–Thu day</td><td>117 portions <span class=\"muted\">report baseline</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td><td>" + m.n + "</td></tr>" +
       FEATURES.map((f, i) => {
         const n = m.counts[i], studyPct = Math.round(STUDY_DAYS / (STUDY_DAYS + n) * 100);
         return "<tr><td>" + f.label + "</td><td>×" + STUDY[f.key].toFixed(2) + ' <span class="muted">' + SURVEY[f.key] + "</span></td><td>" + fmtMult(dataOnlyModel.w[i + 1]) +

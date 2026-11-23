@@ -10,8 +10,8 @@ What is REAL in the output:
 
 What is SIMULATED (source = "simulated"):
   - owner_planned, portions_sold, leftover_portions, sold_out
-  The simulator uses the group's own study: survey multipliers and the vendor
-  interview, including the vendor's real sales for 7 days (see settings below). Replace these rows with the shop's real records when
+  The simulator uses the group's own IF-THEN rules (same values as the report,
+  Section 3.0) and the vendor interview (see settings below). Replace these rows with the shop's real records when
   the owner shares them; the app retrains automatically.
 
 Run:  python3 generate.py      (writes sales.csv and sales.js)
@@ -28,26 +28,25 @@ LAT, LON = 4.3594, 100.9653          # Seri Iskandar, Perak
 RAIN_THRESHOLD_MM = 10.0             # a day with >= 10 mm counts as "rainy"
 SEED = 2026
 
-# ---- Simulator settings: the GROUP'S OWN STUDY (AI-Gepuk_AI_Survey_Data_Analysis.xlsx) ----
-# Vendor interview: real daily sales for the last 7 days were
-#   Mon 118, Tue 122, Wed 120, Thu 124, Fri 133, Sat 141, Sun 136  (lecture period).
-BASELINE_WEEKDAY = 121               # Mon-Thu average of the vendor's 7 days
-DAY = {4: 133 / 121, 5: 141 / 121, 6: 136 / 121}   # Fri x1.10, Sat x1.17, Sun x1.12 (vendor's 7 days)
-PERIOD = {                           # applied from the UTP calendar (77% of respondents study at UTP)
+# ---- Simulator settings: the GROUP'S OWN RULES (AI_-_AI_Workflow_and_Portion_Prediction.xlsx, sheet "Rules")
+# ---- and study (AI-Gepuk_AI_Survey_Data_Analysis.xlsx). Same values as the report, Section 3.0.
+BASELINE_WEEKDAY = 117               # report: normal lecture weekday (vendor's 101-150 range)
+DAY = {5: 1.24, 6: 1.24}             # Rule 1: weekend (Saturday, Sunday) x1.24 (survey: weekend vs weekday interest)
+PERIOD = {                           # applied from the UTP calendar (76.7% of respondents study at UTP)
     "Lecture": 1.00,
-    "Study break": 0.95625,          # survey: no classes that day, willingness 0.9125, gap halved
-    "Exams": 0.75,                   # survey: exam week / many assignments
-    "Break": 0.60,                   # vendor: "about 40% fewer, around 60 to 75 portions a day"
-}
-RAIN = 0.83125                       # survey: willingness 0.6625, gap halved (vendor: 10-20% fewer)
-HOLIDAY = 0.40                       # ASSUMPTION: not in survey; vendor "not sure"
+    "Study break": 0.95,             # Rule 2: survey, no classes that day
+    "Exams": 0.75,                   # Rule 3: survey, exam week / many assignments
+    "Break": 0.60,                   # Rule 4: vendor, "about 40% fewer, around 60 to 75 portions a day"
+}                                    #   (replaces the 0.50 assumption, as the rules sheet says to)
+RAIN = 0.85                          # Rule 5: survey 0.83 rounded to 0.85 (vendor: 10-20% fewer)
+HOLIDAY = 0.40                       # Rule 6: ASSUMPTION, not in survey; vendor "not sure"
 # UiTM: ESTIMATE. 12% of respondents study at UiTM, so a UiTM period changes total demand by
 # about 12% x (the same change seen for UTP students): break 1-0.12x0.40, exams 1-0.12x0.25.
 UITM_PERIOD = {"Lecture": 1.00, "Study break": 0.99, "Exams": 0.97, "Break": 0.95}
 # Owner: decides early morning "based on previous day's sales", leaves ~0 unsold portions
 # and turns away 1-5 customers when chicken runs out. So: plan = recent days' customers + a little.
 OWNER_EXTRA = (0.00, 0.06)          # a little extra on top of the recent average
-NOISE_SD = 0.06                      # day-to-day randomness (6%), ASSUMPTION
+NOISE = 5                            # report: random adjustment of plus/minus 5 portions a day
 
 
 def fetch_rain():
@@ -99,7 +98,7 @@ def main():
         utp, uitm = status_on(cal["utp"], d), status_on(cal["uitm"], d)
 
         mult = DAY.get(dow, 1.0) * PERIOD[utp] * UITM_PERIOD[uitm] * (RAIN if rainy else 1.0) * (HOLIDAY if hol else 1.0)
-        demand = max(15, round(BASELINE_WEEKDAY * mult * (1 + rng.gauss(0, NOISE_SD))))
+        demand = max(15, round(BASELINE_WEEKDAY * mult) + rng.randint(-NOISE, NOISE))
 
         # Owner's manual estimate: yesterday's sales plus a little (vendor interview)
         # The owner sees the queue and the customers turned away, so they know roughly how

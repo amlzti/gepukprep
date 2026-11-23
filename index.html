@@ -367,9 +367,10 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
       <div class="card">
         <div class="scn">
           <span class="scn-label">Try an example day</span>
-          <button class="pill-btn" data-scn="normal">Normal weekday</button>
-          <button class="pill-btn" data-scn="rainy">Rainy Saturday</button>
-          <button class="pill-btn" data-scn="holbreak">Holiday in break</button>
+          <button class="pill-btn" data-scn="weekend">Sunny weekend</button>
+          <button class="pill-btn" data-scn="rainwk">Rainy weekday</button>
+          <button class="pill-btn" data-scn="sembreak">Semester break</button>
+          <button class="pill-btn" data-scn="holiday">Public holiday</button>
           <button class="pill-btn" data-scn="event">Campus event</button>
         </div>
       </div>
@@ -434,7 +435,7 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
         <div class="actions"><button class="btn btn-plain" id="l-undo" type="button">Remove last</button><button class="btn btn-plain" id="l-export" type="button">Export CSV</button></div>
       </div>
       <p class="muted" style="font-size:13px;margin-top:0">Each saved day is added to what the model learns from. Saved in this browser only.</p>
-      <div class="tbl-wrap"><table><thead><tr><th>Day</th><th>Planned</th><th>Sold</th><th>Ori / Crispy / Keli / Talapia / Indomee</th><th>Leftover</th><th>Sold out</th><th>Weather</th></tr></thead><tbody id="l-table"></tbody></table></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Day</th><th>Planned</th><th>Sold</th><th>By dish</th><th>Leftover</th><th>Sold out</th><th>Weather</th></tr></thead><tbody id="l-table"></tbody></table></div>
     </div>
   </div>
 </section>
@@ -457,7 +458,7 @@ tr[data-date]:hover td { background: var(--yellow-soft); }
         <li>Rain <span class="tag tag-real">Real</span> Open-Meteo daily rainfall for Seri Iskandar. A day with 10 mm or more counts as rainy.</li>
         <li>UiTM status <span class="tag tag-real">Real</span> official UiTM Group B academic calendar 2025/2026 and 2026/2027</li>
         <li>UTP status <span class="tag tag-real">Real</span> key dates from the UTP Academic Calendar 2026; remaining week boundaries follow UTP's official 12-week semester pattern</li>
-        <li>Effect sizes <span class="tag tag-real">Real</span> the group's study. Student survey (n = 40, 77% UTP): rain ×0.83, exam week ×0.75, study break ×0.96. Vendor interview: 7 days of real sales (Mon–Thu about 121, Fri 133, Sat 141, Sun 136) and semester break about 40% fewer. Public holiday ×0.40 is the group's assumption.</li>
+        <li>Effect sizes <span class="tag tag-real">Real</span> the group's IF-THEN rules, from the student survey (n = 40, 77% UTP): weekend ×1.24, rain ×0.85, exam week ×0.75, study break ×0.95; and the vendor interview: semester break about 40% fewer (×0.60). Normal weekday 117 portions. Public holiday ×0.40 is the group's assumption.</li>
         <li>Recipe <span class="tag tag-real">Real</span> vendor interview: 1 chicken piece, 225 g rice, about 28 g sambal per plate</li>
         <li>Daily portions sold and owner's plans <span class="tag tag-sim">Simulated</span> from the survey and vendor numbers above (owner plans from recent days, as the vendor described), until the shop's own records are uploaded</li>
         <li>Days saved in Tutup kedai <span class="tag tag-real">Real</span> entered by the crew</li>
