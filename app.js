@@ -217,7 +217,7 @@
     FEATURES.forEach((f, i) => {
       if (!x[i + 1]) return;
       const before = Math.round(run); run *= mult(m.w[i + 1]);
-      lines.push({ label: f.label, sub: fmtMult(m.w[i + 1]) + " · study ×" + STUDY[f.key].toFixed(2) + " + " + m.counts[i] + " days of data", v: Math.round(run) - before, kind: "learned" });
+      lines.push({ label: f.label, sub: fmtMult(m.w[i + 1]) + " · study ×" + STUDY[f.key].toFixed(2), v: Math.round(run) - before, kind: "learned" });
     });
     if (c.holiday) lines.push({ label: "Public holiday", sub: (c.holidayName ? c.holidayName + ": " : "") + "no effect in the report's rules. Add a note below if it will be quieter.", v: 0, kind: "rule" });
     let total = lines.reduce((t, l) => t + l.v, 0);
@@ -490,13 +490,12 @@
   function renderData() {
     const m = fullModel;
     $("d-coef").innerHTML =
-      "<tr><td>Typical weekday</td><td>117 portions <span class=\"muted\">report</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td><td>" + m.n + "</td></tr>" +
+      "<tr><td>Typical weekday</td><td>117 portions <span class=\"muted\">report</span></td><td>" + Math.round(mult(dataOnlyModel.w[0])) + "</td><td><strong>" + Math.round(mult(m.w[0])) + "</strong></td><td>data</td></tr>" +
       FEATURES.map((f, i) => {
         const n = m.counts[i], studyPct = Math.round(STUDY_DAYS / (STUDY_DAYS + n) * 100);
         return "<tr><td>" + f.label + "</td><td>×" + STUDY[f.key].toFixed(2) + ' <span class="muted">' + SURVEY[f.key] + "</span></td><td>" + fmtMult(dataOnlyModel.w[i + 1]) +
           "</td><td><strong>" + fmtMult(m.w[i + 1]) + "</strong></td><td>" +
-          '<span class="mixbar" title="Study ' + studyPct + "%, data " + (100 - studyPct) + '%"><span style="width:' + studyPct + '%"></span></span> ' + studyPct + "% study</td><td>" + n +
-          (m.real[i] ? " (" + m.real[i] + " real)" : "") + "</td></tr>";
+          '<span class="mixbar" title="Study ' + studyPct + "%, data " + (100 - studyPct) + '%"><span style="width:' + studyPct + '%"></span></span> ' + studyPct + "% study</td></tr>";
       }).join("");
     $("d-rmse").textContent = rmse.toFixed(1);
     $("d-split").textContent = split + " days to learn, " + testRows.length + " days to test";
